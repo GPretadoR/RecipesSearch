@@ -1,0 +1,779 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 51;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		8D8DA88223EB02EA00C4F8D1 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D8DA88123EB02EA00C4F8D1 /* R.generated.swift */; };
+		8D8DA88423EC241400C4F8D1 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D8DA88323EC241400C4F8D1 /* Model.swift */; };
+		8D8DA88723EC243800C4F8D1 /* SearchRecipeResponseObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D8DA88523EC243600C4F8D1 /* SearchRecipeResponseObject.swift */; };
+		8D8DA88823EC243800C4F8D1 /* RecipeObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D8DA88623EC243800C4F8D1 /* RecipeObject.swift */; };
+		8DA042C423EC391300E253CE /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA042C323EC391200E253CE /* BaseViewController.swift */; };
+		8DA042CE23ED928200E253CE /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA042CD23ED928200E253CE /* Constants.swift */; };
+		8DB13A6223E9BB2500274120 /* NetworkServiceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DB13A5E23E9BB2500274120 /* NetworkServiceProvider.swift */; };
+		8DB13A6323E9BB2500274120 /* NetworkRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DB13A5F23E9BB2500274120 /* NetworkRequest.swift */; };
+		8DB13A6423E9BB2500274120 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DB13A6023E9BB2500274120 /* HTTPMethod.swift */; };
+		8DB13A6523E9BB2500274120 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DB13A6123E9BB2500274120 /* Environment.swift */; };
+		8DB2E4E423E9ADCF00282B00 /* SearchRecipeRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DB2E4E323E9ADCF00282B00 /* SearchRecipeRequest.swift */; };
+		8DED8C9223E5BCB600A138D2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DED8C9123E5BCB600A138D2 /* AppDelegate.swift */; };
+		8DED8C9423E5BCB600A138D2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DED8C9323E5BCB600A138D2 /* SceneDelegate.swift */; };
+		8DED8C9623E5BCB600A138D2 /* RecipesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DED8C9523E5BCB600A138D2 /* RecipesViewController.swift */; };
+		8DED8C9923E5BCB600A138D2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8DED8C9723E5BCB600A138D2 /* Main.storyboard */; };
+		8DED8C9B23E5BCBA00A138D2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8DED8C9A23E5BCBA00A138D2 /* Assets.xcassets */; };
+		8DED8C9E23E5BCBA00A138D2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8DED8C9C23E5BCBA00A138D2 /* LaunchScreen.storyboard */; };
+		8DED8CA923E5BCBA00A138D2 /* RakutenShopTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DED8CA823E5BCBA00A138D2 /* RakutenShopTests.swift */; };
+		8DED8CB423E5C42E00A138D2 /* RecipesViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DED8CB323E5C42E00A138D2 /* RecipesViewViewModel.swift */; };
+		8DF210D323EACC4F00592024 /* RecipesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF210D223EACC4F00592024 /* RecipesCollectionViewCell.swift */; };
+		8DF210D523EAF24400592024 /* Context.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF210D423EAF24400592024 /* Context.swift */; };
+		8DF210D723EAF26B00592024 /* Services.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF210D623EAF26B00592024 /* Services.swift */; };
+		8DF210DA23EAF28E00592024 /* SearchRecipesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF210D923EAF28E00592024 /* SearchRecipesService.swift */; };
+		8DF210E223EAFFAF00592024 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF210E023EAFFAF00592024 /* Coordinator.swift */; };
+		8DF210E323EAFFAF00592024 /* BaseCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF210E123EAFFAF00592024 /* BaseCoordinator.swift */; };
+		8DF210E523EB004000592024 /* RecipesViewCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF210E423EB004000592024 /* RecipesViewCoordinator.swift */; };
+		A2BD98148227EB2073444422 /* Pods_RakutenShopTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAFA611740E71D99E1E667A2 /* Pods_RakutenShopTests.framework */; };
+		C3FA39E06FD9E5AA0F3F6446 /* Pods_RakutenShop.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C33749209BC87DC7A48DE694 /* Pods_RakutenShop.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		8DED8CA523E5BCBA00A138D2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8DED8C8623E5BCB600A138D2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8DED8C8D23E5BCB600A138D2;
+			remoteInfo = RakutenShop;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		1B077C841C09E357E56F36B7 /* Pods-RakutenShopTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RakutenShopTests.debug.xcconfig"; path = "Target Support Files/Pods-RakutenShopTests/Pods-RakutenShopTests.debug.xcconfig"; sourceTree = "<group>"; };
+		29D67A0F2863DE5AC66509CF /* Pods-RakutenShopTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RakutenShopTests.release.xcconfig"; path = "Target Support Files/Pods-RakutenShopTests/Pods-RakutenShopTests.release.xcconfig"; sourceTree = "<group>"; };
+		2FFC7633C30F4FAF259C2020 /* Pods-RakutenShop.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RakutenShop.release.xcconfig"; path = "Target Support Files/Pods-RakutenShop/Pods-RakutenShop.release.xcconfig"; sourceTree = "<group>"; };
+		8D8DA88123EB02EA00C4F8D1 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
+		8D8DA88323EC241400C4F8D1 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		8D8DA88523EC243600C4F8D1 /* SearchRecipeResponseObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchRecipeResponseObject.swift; sourceTree = "<group>"; };
+		8D8DA88623EC243800C4F8D1 /* RecipeObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipeObject.swift; sourceTree = "<group>"; };
+		8DA042C323EC391200E253CE /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		8DA042CD23ED928200E253CE /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		8DB13A5E23E9BB2500274120 /* NetworkServiceProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkServiceProvider.swift; sourceTree = "<group>"; };
+		8DB13A5F23E9BB2500274120 /* NetworkRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkRequest.swift; sourceTree = "<group>"; };
+		8DB13A6023E9BB2500274120 /* HTTPMethod.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
+		8DB13A6123E9BB2500274120 /* Environment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
+		8DB2E4E323E9ADCF00282B00 /* SearchRecipeRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRecipeRequest.swift; sourceTree = "<group>"; };
+		8DED8C8E23E5BCB600A138D2 /* RakutenShop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RakutenShop.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8DED8C9123E5BCB600A138D2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		8DED8C9323E5BCB600A138D2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		8DED8C9523E5BCB600A138D2 /* RecipesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesViewController.swift; sourceTree = "<group>"; };
+		8DED8C9823E5BCB600A138D2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		8DED8C9A23E5BCBA00A138D2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		8DED8C9D23E5BCBA00A138D2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		8DED8C9F23E5BCBA00A138D2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8DED8CA423E5BCBA00A138D2 /* RakutenShopTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RakutenShopTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		8DED8CA823E5BCBA00A138D2 /* RakutenShopTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RakutenShopTests.swift; sourceTree = "<group>"; };
+		8DED8CAA23E5BCBA00A138D2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8DED8CB323E5C42E00A138D2 /* RecipesViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesViewViewModel.swift; sourceTree = "<group>"; };
+		8DF210D223EACC4F00592024 /* RecipesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesCollectionViewCell.swift; sourceTree = "<group>"; };
+		8DF210D423EAF24400592024 /* Context.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Context.swift; sourceTree = "<group>"; };
+		8DF210D623EAF26B00592024 /* Services.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Services.swift; sourceTree = "<group>"; };
+		8DF210D923EAF28E00592024 /* SearchRecipesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRecipesService.swift; sourceTree = "<group>"; };
+		8DF210E023EAFFAF00592024 /* Coordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Coordinator.swift; path = RakutenShop/Coordinators/Coordinator.swift; sourceTree = SOURCE_ROOT; };
+		8DF210E123EAFFAF00592024 /* BaseCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseCoordinator.swift; path = RakutenShop/Coordinators/BaseCoordinator.swift; sourceTree = SOURCE_ROOT; };
+		8DF210E423EB004000592024 /* RecipesViewCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesViewCoordinator.swift; sourceTree = "<group>"; };
+		9061CC62E9795EC8293BB2B8 /* Pods-RakutenShop.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RakutenShop.debug.xcconfig"; path = "Target Support Files/Pods-RakutenShop/Pods-RakutenShop.debug.xcconfig"; sourceTree = "<group>"; };
+		C33749209BC87DC7A48DE694 /* Pods_RakutenShop.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RakutenShop.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FAFA611740E71D99E1E667A2 /* Pods_RakutenShopTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RakutenShopTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8DED8C8B23E5BCB600A138D2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C3FA39E06FD9E5AA0F3F6446 /* Pods_RakutenShop.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8DED8CA123E5BCBA00A138D2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A2BD98148227EB2073444422 /* Pods_RakutenShopTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		48D61EFDF916A3640940B048 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				9061CC62E9795EC8293BB2B8 /* Pods-RakutenShop.debug.xcconfig */,
+				2FFC7633C30F4FAF259C2020 /* Pods-RakutenShop.release.xcconfig */,
+				1B077C841C09E357E56F36B7 /* Pods-RakutenShopTests.debug.xcconfig */,
+				29D67A0F2863DE5AC66509CF /* Pods-RakutenShopTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		8D8DA87F23EB02BB00C4F8D1 /* Views and Cells */ = {
+			isa = PBXGroup;
+			children = (
+				8DF210D223EACC4F00592024 /* RecipesCollectionViewCell.swift */,
+			);
+			path = "Views and Cells";
+			sourceTree = "<group>";
+		};
+		8D8DA88023EB02CE00C4F8D1 /* Recources */ = {
+			isa = PBXGroup;
+			children = (
+				8D8DA88123EB02EA00C4F8D1 /* R.generated.swift */,
+				8DED8C9723E5BCB600A138D2 /* Main.storyboard */,
+				8DED8C9A23E5BCBA00A138D2 /* Assets.xcassets */,
+				8DED8C9C23E5BCBA00A138D2 /* LaunchScreen.storyboard */,
+			);
+			path = Recources;
+			sourceTree = "<group>";
+		};
+		8D8DA88923EC24E500C4F8D1 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				8D8DA88323EC241400C4F8D1 /* Model.swift */,
+				8D8DA88523EC243600C4F8D1 /* SearchRecipeResponseObject.swift */,
+				8D8DA88623EC243800C4F8D1 /* RecipeObject.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		8DA042C123EC382300E253CE /* BaseClasses */ = {
+			isa = PBXGroup;
+			children = (
+				8DF210DB23EAFF3B00592024 /* Coordinators */,
+				8DA042C223EC383700E253CE /* BaseViewController */,
+			);
+			path = BaseClasses;
+			sourceTree = "<group>";
+		};
+		8DA042C223EC383700E253CE /* BaseViewController */ = {
+			isa = PBXGroup;
+			children = (
+				8DA042C323EC391200E253CE /* BaseViewController.swift */,
+			);
+			path = BaseViewController;
+			sourceTree = "<group>";
+		};
+		8DA042CC23ED925400E253CE /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				8DA042CD23ED928200E253CE /* Constants.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		8DB2E4E523E9ADD300282B00 /* Requests */ = {
+			isa = PBXGroup;
+			children = (
+				8DB2E4E323E9ADCF00282B00 /* SearchRecipeRequest.swift */,
+			);
+			path = Requests;
+			sourceTree = "<group>";
+		};
+		8DED8C8523E5BCB600A138D2 = {
+			isa = PBXGroup;
+			children = (
+				8DED8C9023E5BCB600A138D2 /* RakutenShop */,
+				8DED8CA723E5BCBA00A138D2 /* RakutenShopTests */,
+				8DED8C8F23E5BCB600A138D2 /* Products */,
+				48D61EFDF916A3640940B048 /* Pods */,
+				C971622AFDA958E7DAFD18B5 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		8DED8C8F23E5BCB600A138D2 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8DED8C8E23E5BCB600A138D2 /* RakutenShop.app */,
+				8DED8CA423E5BCBA00A138D2 /* RakutenShopTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		8DED8C9023E5BCB600A138D2 /* RakutenShop */ = {
+			isa = PBXGroup;
+			children = (
+				8DED8C9123E5BCB600A138D2 /* AppDelegate.swift */,
+				8DED8C9323E5BCB600A138D2 /* SceneDelegate.swift */,
+				8DA042CC23ED925400E253CE /* Utils */,
+				8DA042C123EC382300E253CE /* BaseClasses */,
+				8DF210D823EAF26F00592024 /* Context */,
+				8D8DA88923EC24E500C4F8D1 /* Model */,
+				8DED8CC023E99ADC00A138D2 /* Networking */,
+				8DED8CB523E5C43500A138D2 /* RecipesView */,
+				8DED8C9F23E5BCBA00A138D2 /* Info.plist */,
+				8D8DA88023EB02CE00C4F8D1 /* Recources */,
+			);
+			path = RakutenShop;
+			sourceTree = "<group>";
+		};
+		8DED8CA723E5BCBA00A138D2 /* RakutenShopTests */ = {
+			isa = PBXGroup;
+			children = (
+				8DED8CA823E5BCBA00A138D2 /* RakutenShopTests.swift */,
+				8DED8CAA23E5BCBA00A138D2 /* Info.plist */,
+			);
+			path = RakutenShopTests;
+			sourceTree = "<group>";
+		};
+		8DED8CB523E5C43500A138D2 /* RecipesView */ = {
+			isa = PBXGroup;
+			children = (
+				8DED8C9523E5BCB600A138D2 /* RecipesViewController.swift */,
+				8DED8CB323E5C42E00A138D2 /* RecipesViewViewModel.swift */,
+				8DF210E423EB004000592024 /* RecipesViewCoordinator.swift */,
+				8D8DA87F23EB02BB00C4F8D1 /* Views and Cells */,
+			);
+			path = RecipesView;
+			sourceTree = "<group>";
+		};
+		8DED8CC023E99ADC00A138D2 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				8DB13A6123E9BB2500274120 /* Environment.swift */,
+				8DB13A6023E9BB2500274120 /* HTTPMethod.swift */,
+				8DB13A5F23E9BB2500274120 /* NetworkRequest.swift */,
+				8DB13A5E23E9BB2500274120 /* NetworkServiceProvider.swift */,
+				8DB2E4E523E9ADD300282B00 /* Requests */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		8DF210D823EAF26F00592024 /* Context */ = {
+			isa = PBXGroup;
+			children = (
+				8DF210D423EAF24400592024 /* Context.swift */,
+				8DF210D623EAF26B00592024 /* Services.swift */,
+				8DF210D923EAF28E00592024 /* SearchRecipesService.swift */,
+			);
+			path = Context;
+			sourceTree = "<group>";
+		};
+		8DF210DB23EAFF3B00592024 /* Coordinators */ = {
+			isa = PBXGroup;
+			children = (
+				8DF210E123EAFFAF00592024 /* BaseCoordinator.swift */,
+				8DF210E023EAFFAF00592024 /* Coordinator.swift */,
+			);
+			path = Coordinators;
+			sourceTree = "<group>";
+		};
+		C971622AFDA958E7DAFD18B5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C33749209BC87DC7A48DE694 /* Pods_RakutenShop.framework */,
+				FAFA611740E71D99E1E667A2 /* Pods_RakutenShopTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8DED8C8D23E5BCB600A138D2 /* RakutenShop */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8DED8CAD23E5BCBA00A138D2 /* Build configuration list for PBXNativeTarget "RakutenShop" */;
+			buildPhases = (
+				5F4DC08EEEBFEC9EC241BE96 /* [CP] Check Pods Manifest.lock */,
+				8DF210E623EB022C00592024 /* R */,
+				8DA042CF23EDA34D00E253CE /* SwiftLint */,
+				8DED8C8A23E5BCB600A138D2 /* Sources */,
+				8DED8C8B23E5BCB600A138D2 /* Frameworks */,
+				8DED8C8C23E5BCB600A138D2 /* Resources */,
+				2D4AB86941E2F681F10397CB /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = RakutenShop;
+			productName = RakutenShop;
+			productReference = 8DED8C8E23E5BCB600A138D2 /* RakutenShop.app */;
+			productType = "com.apple.product-type.application";
+		};
+		8DED8CA323E5BCBA00A138D2 /* RakutenShopTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8DED8CB023E5BCBA00A138D2 /* Build configuration list for PBXNativeTarget "RakutenShopTests" */;
+			buildPhases = (
+				8E35AA85CD95CDC71D4DDFE7 /* [CP] Check Pods Manifest.lock */,
+				8DED8CA023E5BCBA00A138D2 /* Sources */,
+				8DED8CA123E5BCBA00A138D2 /* Frameworks */,
+				8DED8CA223E5BCBA00A138D2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8DED8CA623E5BCBA00A138D2 /* PBXTargetDependency */,
+			);
+			name = RakutenShopTests;
+			productName = RakutenShopTests;
+			productReference = 8DED8CA423E5BCBA00A138D2 /* RakutenShopTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		8DED8C8623E5BCB600A138D2 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1120;
+				LastUpgradeCheck = 1120;
+				ORGANIZATIONNAME = "Garnik Ghazaryan";
+				TargetAttributes = {
+					8DED8C8D23E5BCB600A138D2 = {
+						CreatedOnToolsVersion = 11.2.1;
+					};
+					8DED8CA323E5BCBA00A138D2 = {
+						CreatedOnToolsVersion = 11.2.1;
+						TestTargetID = 8DED8C8D23E5BCB600A138D2;
+					};
+				};
+			};
+			buildConfigurationList = 8DED8C8923E5BCB600A138D2 /* Build configuration list for PBXProject "RakutenShop" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 8DED8C8523E5BCB600A138D2;
+			productRefGroup = 8DED8C8F23E5BCB600A138D2 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8DED8C8D23E5BCB600A138D2 /* RakutenShop */,
+				8DED8CA323E5BCBA00A138D2 /* RakutenShopTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8DED8C8C23E5BCB600A138D2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8DED8C9E23E5BCBA00A138D2 /* LaunchScreen.storyboard in Resources */,
+				8DED8C9B23E5BCBA00A138D2 /* Assets.xcassets in Resources */,
+				8DED8C9923E5BCB600A138D2 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8DED8CA223E5BCBA00A138D2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2D4AB86941E2F681F10397CB /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-RakutenShop/Pods-RakutenShop-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-RakutenShop/Pods-RakutenShop-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-RakutenShop/Pods-RakutenShop-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5F4DC08EEEBFEC9EC241BE96 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-RakutenShop-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8DA042CF23EDA34D00E253CE /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nif [ -z \"$CI\" ]; then \n\"${PODS_ROOT}/SwiftLint/swiftlint\" \nfi\n";
+		};
+		8DF210E623EB022C00592024 /* R */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$TEMP_DIR/rswift-lastrun",
+			);
+			name = R;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				$SRCROOT/R.generated.swift,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"$PODS_ROOT/R.swift/rswift\" generate \"$SRCROOT/R.generated.swift\"\n";
+		};
+		8E35AA85CD95CDC71D4DDFE7 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-RakutenShopTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8DED8C8A23E5BCB600A138D2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8DF210D523EAF24400592024 /* Context.swift in Sources */,
+				8DA042CE23ED928200E253CE /* Constants.swift in Sources */,
+				8DF210E523EB004000592024 /* RecipesViewCoordinator.swift in Sources */,
+				8DF210D723EAF26B00592024 /* Services.swift in Sources */,
+				8DF210D323EACC4F00592024 /* RecipesCollectionViewCell.swift in Sources */,
+				8DB13A6323E9BB2500274120 /* NetworkRequest.swift in Sources */,
+				8DA042C423EC391300E253CE /* BaseViewController.swift in Sources */,
+				8DED8C9623E5BCB600A138D2 /* RecipesViewController.swift in Sources */,
+				8DED8C9223E5BCB600A138D2 /* AppDelegate.swift in Sources */,
+				8DF210E223EAFFAF00592024 /* Coordinator.swift in Sources */,
+				8D8DA88223EB02EA00C4F8D1 /* R.generated.swift in Sources */,
+				8D8DA88423EC241400C4F8D1 /* Model.swift in Sources */,
+				8DED8C9423E5BCB600A138D2 /* SceneDelegate.swift in Sources */,
+				8DB13A6523E9BB2500274120 /* Environment.swift in Sources */,
+				8DB13A6423E9BB2500274120 /* HTTPMethod.swift in Sources */,
+				8DF210E323EAFFAF00592024 /* BaseCoordinator.swift in Sources */,
+				8D8DA88823EC243800C4F8D1 /* RecipeObject.swift in Sources */,
+				8DED8CB423E5C42E00A138D2 /* RecipesViewViewModel.swift in Sources */,
+				8DB2E4E423E9ADCF00282B00 /* SearchRecipeRequest.swift in Sources */,
+				8DB13A6223E9BB2500274120 /* NetworkServiceProvider.swift in Sources */,
+				8D8DA88723EC243800C4F8D1 /* SearchRecipeResponseObject.swift in Sources */,
+				8DF210DA23EAF28E00592024 /* SearchRecipesService.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8DED8CA023E5BCBA00A138D2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8DED8CA923E5BCBA00A138D2 /* RakutenShopTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		8DED8CA623E5BCBA00A138D2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8DED8C8D23E5BCB600A138D2 /* RakutenShop */;
+			targetProxy = 8DED8CA523E5BCBA00A138D2 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		8DED8C9723E5BCB600A138D2 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8DED8C9823E5BCB600A138D2 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		8DED8C9C23E5BCBA00A138D2 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8DED8C9D23E5BCBA00A138D2 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		8DED8CAB23E5BCBA00A138D2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		8DED8CAC23E5BCBA00A138D2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		8DED8CAE23E5BCBA00A138D2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9061CC62E9795EC8293BB2B8 /* Pods-RakutenShop.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = RakutenShop/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = EPAM.RakutenShop;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		8DED8CAF23E5BCBA00A138D2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2FFC7633C30F4FAF259C2020 /* Pods-RakutenShop.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = RakutenShop/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = EPAM.RakutenShop;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		8DED8CB123E5BCBA00A138D2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1B077C841C09E357E56F36B7 /* Pods-RakutenShopTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = RakutenShopTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = EPAM.RakutenShopTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RakutenShop.app/RakutenShop";
+			};
+			name = Debug;
+		};
+		8DED8CB223E5BCBA00A138D2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 29D67A0F2863DE5AC66509CF /* Pods-RakutenShopTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = RakutenShopTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = EPAM.RakutenShopTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RakutenShop.app/RakutenShop";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		8DED8C8923E5BCB600A138D2 /* Build configuration list for PBXProject "RakutenShop" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8DED8CAB23E5BCBA00A138D2 /* Debug */,
+				8DED8CAC23E5BCBA00A138D2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8DED8CAD23E5BCBA00A138D2 /* Build configuration list for PBXNativeTarget "RakutenShop" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8DED8CAE23E5BCBA00A138D2 /* Debug */,
+				8DED8CAF23E5BCBA00A138D2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8DED8CB023E5BCBA00A138D2 /* Build configuration list for PBXNativeTarget "RakutenShopTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8DED8CB123E5BCBA00A138D2 /* Debug */,
+				8DED8CB223E5BCBA00A138D2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 8DED8C8623E5BCB600A138D2 /* Project object */;
+}

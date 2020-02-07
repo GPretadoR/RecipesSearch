@@ -1,0 +1,52 @@
+excluded: # paths to ignore during linting. Takes precedence over `included`.
+  - Carthage
+  - Pods
+  - vendor # this is for circleci
+  - R.generated.swift
+  
+disabled_rules:
+  - todo
+  - trailing_whitespace
+  - unused_closure_parameter
+  - xctfail_message
+  - switch_case_alignment
+  - fallthrough
+  - identifier_name
+  - type_name
+  
+#TODO Fix the rules and remove these lines
+force_cast: warning
+
+file_length:
+    warning: 500
+    error: 1000
+    ignore_comment_only_lines: true
+line_length:
+    warning: 250 # fix to 150
+    error: 300 # fix to 200
+    ignores_function_declarations: true
+    ignores_comments: true
+    ignores_urls: true
+
+type_body_length:
+    warning: 300
+    error: 500
+
+cyclomatic_complexity:
+    warning: 20 #was 15
+    error: 25
+
+type_name:
+  max_length: 60
+
+identifier_name:
+  min_length: 2
+  max_length: 60
+
+function_body_length:
+    warning: 100
+    error: 300
+
+function_parameter_count:
+    warning: 6
+    error: 8
