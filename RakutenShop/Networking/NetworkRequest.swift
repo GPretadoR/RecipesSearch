@@ -6,21 +6,30 @@
 //  Copyright © 2020 Garnik Ghazaryan. All rights reserved.
 //
 
-import UIKit
+import Foundation
+import Alamofire
 
 protocol NetworkRequest {
-    var baseURL: String { get }
+    var baseURL: URL? { get }
     var path: String { get }
-    var parameters: [String: String]? { get }
+    var queryParameters: [String: String]? { get }
+    var bodyParameters: [String: String]? { get }
     var httpMethod: HTTPMethod { get }
     var customHeaders: [String: String]? { get }
+    var authorizationStrategy: AuthorizationStrategy? { get }
+    var timeoutInterval: TimeInterval? { get }
+    
 }
 
 extension NetworkRequest {
-    var parameters: [String: String]? { nil }
+    var baseURL: URL? { nil }
+    var queryParameters: [String: String]? { nil }
+    var bodyParameters: [String: String]? { nil }
     var customHeaders: [String: String]? { nil }
+    var authorizationStrategy: AuthorizationStrategy? { nil }
+    var timeoutInterval: TimeInterval? { 10 }
 }
-
+/*
 #warning("I am thinking this part should be changed, look in the Ihor's project, he structed it well")
 extension NetworkRequest {
     var urlRequest: URLRequest {
@@ -45,7 +54,7 @@ extension NetworkRequest {
         urlComponents?.path = path
         
         if httpMethod == .get {
-            if let parameters = parameters {
+            if let parameters = queryParameters {
                 urlComponents?.queryItems = parameters.map({URLQueryItem(name: $0.key, value: $0.value)})
             }
         }
@@ -54,4 +63,8 @@ extension NetworkRequest {
         
         return urlComponents?.url
     }
+}
+*/
+enum AuthorizationStrategy {
+    case token
 }

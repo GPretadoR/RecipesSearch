@@ -16,9 +16,12 @@ class RecipesViewViewModel {
     weak var coordinatorDelegate: RecipesViewCoordinatorDelegate?
     private let context: Context
     private var imagesBaseUrl: String = ""
+    
     var recipeItems = MutableProperty<[RecipeObject]>([])
     var isLoading = MutableProperty<Bool>(false)
     var errorMessage = MutableProperty<String>("")
+    
+    let debounceInterval = 0.8
     
     init(context: Context, coordinatorDelegate: RecipesViewCoordinatorDelegate) {
         self.context = context
@@ -43,8 +46,8 @@ class RecipesViewViewModel {
         }).start()
     }
     
-    #warning("this is not connected with the data downloading process")
     func buildImageUrl(id: Int) -> URL? {
+        guard imagesBaseUrl != "" else { return nil }
         let imageSize = RecipeCollectionImageSizes.medium312by231.rawValue
         guard let  url = URL(string: imagesBaseUrl + "\(id)-\(imageSize).jpg") else { return nil }
         return url

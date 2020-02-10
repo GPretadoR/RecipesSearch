@@ -7,5 +7,10 @@
 //
 
 class Services {
-    let searchRecipesService = SearchRecipesService()
+    let networkServiceProvider = NetworkServiceProvider(baseURL: Environments.baseUrl(env: .dev))
+    
+    let searchRecipesService: SearchRecipesService
+    init() {
+        self.searchRecipesService = SearchRecipesService(searchRequest: networkServiceProvider)
+    }
 }

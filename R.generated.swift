@@ -146,6 +146,91 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
+  /// This `R.string` struct is generated, and contains static references to 2 localization tables.
+  struct string {
+    /// This `R.string.localizable` struct is generated, and contains static references to 2 localization keys.
+    struct localizable {
+      /// Value: Enter Recipe Name
+      static let recipesSearchFieldPlacholder = Rswift.StringResource(key: "recipes.searchField.placholder", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: Search Recipes
+      static let recipesNavigationTitle = Rswift.StringResource(key: "recipes.navigation.title", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
+
+      /// Value: Enter Recipe Name
+      static func recipesSearchFieldPlacholder(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("recipes.searchField.placholder", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "recipes.searchField.placholder"
+        }
+
+        return NSLocalizedString("recipes.searchField.placholder", bundle: bundle, comment: "")
+      }
+
+      /// Value: Search Recipes
+      static func recipesNavigationTitle(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("recipes.navigation.title", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "recipes.navigation.title"
+        }
+
+        return NSLocalizedString("recipes.navigation.title", bundle: bundle, comment: "")
+      }
+
+      fileprivate init() {}
+    }
+
+    /// This `R.string.main` struct is generated, and contains static references to 2 localization keys.
+    struct main {
+      /// en translation: Enter Recipe Name
+      ///
+      /// Locales: en
+      static let aVh67DNHPlaceholder = Rswift.StringResource(key: "aVh-67-dNH.placeholder", tableName: "Main", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Label
+      ///
+      /// Locales: en
+      static let zNdXfUIYText = Rswift.StringResource(key: "zNd-Xf-uIY.text", tableName: "Main", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+
+      /// en translation: Enter Recipe Name
+      ///
+      /// Locales: en
+      static func aVh67DNHPlaceholder(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("aVh-67-dNH.placeholder", tableName: "Main", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Main", preferredLanguages: preferredLanguages) else {
+          return "aVh-67-dNH.placeholder"
+        }
+
+        return NSLocalizedString("aVh-67-dNH.placeholder", tableName: "Main", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Label
+      ///
+      /// Locales: en
+      static func zNdXfUIYText(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("zNd-Xf-uIY.text", tableName: "Main", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Main", preferredLanguages: preferredLanguages) else {
+          return "zNd-Xf-uIY.text"
+        }
+
+        return NSLocalizedString("zNd-Xf-uIY.text", tableName: "Main", bundle: bundle, comment: "")
+      }
+
+      fileprivate init() {}
+    }
+
+    fileprivate init() {}
+  }
+
   fileprivate struct intern: Rswift.Validatable {
     fileprivate static func validate() throws {
       try _R.validate()

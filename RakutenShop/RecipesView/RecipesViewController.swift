@@ -19,35 +19,30 @@ class RecipesViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        #warning("remove comments")
-        // Do any additional setup after loading the view.
-
+        
         recipesCollectionView.dataSource = self
         recipesCollectionView.delegate = self
-        #warning("asdd localizable")
-        self.title = "Search Recipes"
-        setupViewModel()
+        self.title = R.string.localizable.recipesNavigationTitle()
+       
+    }
 
+    // MARK: - Setup View -
+    override func setupView() {
+        rcTextField.placeholder = R.string.localizable.recipesSearchFieldPlacholder()
     }
     
     // MARK: - Setup ViewModel -
     
     override func setupViewModel() {
         guard let viewModel = viewModel else { return }
-        #warning("skip(1) is not good approach, because after removing written text from the textfield you will have a bug )))")
-        #warning("""
-        I will suggest to use this style, it is more obvious
+        
         rcTextField.reactive.continuousTextValues
-            .skip(first: 1)
-            .debounce(0.8, on: QueueScheduler.main)
+            .skip(while: {$0 == ""})
+            .debounce( viewModel.debounceInterval, on: QueueScheduler.main)
             .observeValues { (text) in
             viewModel.getRecipe(keyword: text)
         }
-        """)
-        #warning("0.8 -> avoid hardcoded values as possible")
-        rcTextField.reactive.continuousTextValues.skip(first: 1).debounce(0.8, on: QueueScheduler.main).observeValues { (text) in
-            viewModel.getRecipe(keyword: text)
-        }
+        
         reactive.makeBindingTarget { (weakself, object) in
             self.recipesCollectionView.reloadData()
             } <~ viewModel.recipeItems
@@ -77,17 +72,14 @@ extension RecipesViewController: UICollectionViewDataSource {
             if let title = recipe.title {
                 cell.recipesTitleLabel.text = title
             }
-            #warning("you can use one if let in this case")
-            if let id = recipe.id {
-                if let url = viewModel?.buildImageUrl(id: id) {
-                    cell.recipesImageView?.af_setImage(withURL: url,
-                                                       placeholderImage: R.image.recipePlaceholderImage(),
-                                                       filter: nil,
-                                                       progress: nil,
-                                                       progressQueue: DispatchQueue.global(),
-                                                       imageTransition: UIImageView.ImageTransition.noTransition,
-                                                       runImageTransitionIfCached: true, completion: nil)
-                }
+            if let id = recipe.id, let url = viewModel?.buildImageUrl(id: id) {
+                cell.recipesImageView?.af_setImage(withURL: url,
+                                                   placeholderImage: R.image.recipePlaceholderImage(),
+                                                   filter: nil,
+                                                   progress: nil,
+                                                   progressQueue: DispatchQueue.global(),
+                                                   imageTransition: UIImageView.ImageTransition.noTransition,
+                                                   runImageTransitionIfCached: true, completion: nil)
             }
         }
         
