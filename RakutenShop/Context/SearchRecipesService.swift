@@ -9,6 +9,8 @@
 import ReactiveSwift
 
 class SearchRecipesService {
+    #warning("this is better to inject from the outside, you can give as a argument in the constructor network")
+    #warning("request is not appropriate name")
     private let request = NetworkServiceProvider<SearchRecipeRequest>()
     
     func getRecipes(keyword: String) -> SignalProducer<SearchRecipeResponseObject, Error> {

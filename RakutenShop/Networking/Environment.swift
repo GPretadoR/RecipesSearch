@@ -29,5 +29,27 @@ class Environment {
         
         }
     }
-
 }
+
+#warning("I will suggest to look this example when I am just using enum without using class")
+//enum Environments {
+//    case dev
+//    case production
+//    case qa
+//
+//    private static let prodEnvirontment = "https://api.spoonacular.com"
+//    private static let devEnvironment = "https://api.spoonacular.com"
+//    private static let localDebug = "https://api.spoonacular.com"
+//
+//    static func baseUrl(env: Environments) -> String {
+//        switch env {
+//        case .dev:
+//            return devEnvironment
+//        case .production:
+//            return prodEnvirontment
+//        case .qa:
+//            return localDebug
+//
+//        }
+//    }
+//}

@@ -9,9 +9,11 @@
 import UIKit
 
 class BaseCoordinator: Coordinator {
-    
+
+    #warning("I can suggest to use viewController instead of navigationController as it is more generic and to rename it as rootController or something like more generic")
     var navigationController: UINavigationController?
-    
+  
+    #warning("you don't use this variable and anyway I am not thinking this one is good place")
     var storyboard: UIStoryboard {
         UIStoryboard(name: "Main", bundle: nil)
     }

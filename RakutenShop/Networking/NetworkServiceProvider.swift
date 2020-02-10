@@ -11,6 +11,7 @@ import Alamofire
 import Foundation
 
 protocol NetworkServices {
+    #warning("I will suggest in this case to have more descriptive names, like U -> Output")
     associatedtype T
     associatedtype U
     
@@ -28,6 +29,7 @@ class NetworkServiceProvider<T: NetworkRequest>: NetworkServices {
     
     typealias U = Decodable
     
+    #warning("why do we have requests we reactive and not reactive, it is strange for me?")
     func request(request: T, completion: @escaping(Result<Data>) -> Void) {
         call(request: request.urlRequest, completion: completion)
     }
@@ -53,12 +55,14 @@ class NetworkServiceProvider<T: NetworkRequest>: NetworkServices {
         return reactiveCall(request: request.urlRequest)
     }
     
+    #warning("from the function name it is not understandable that this is returns json and other one is not")
     func request<T: NetworkRequest, U: Decodable>(request: T, decodeType: U.Type) -> SignalProducer<U, Error> {
         return reactiveCallDecodable(request: request.urlRequest, decodeType: decodeType)
     }
     
     private func reactiveCallDecodable<U: Decodable>(request: URLRequest, decodeType: U.Type) -> SignalProducer<U, Error> {
         return SignalProducer { [weak self] observer, lifetime in
+            #warning("Suggestion: guard let self = self else { return }")
             guard let weakSelf = self else { return }
             //TODO: Add do catch
             let dataRequest = weakSelf.session.request(request).responseData(queue: weakSelf.queue) { (dataResponse) in
@@ -82,8 +86,10 @@ class NetworkServiceProvider<T: NetworkRequest>: NetworkServices {
         }
     }
     
+    #warning("I don't understand why do you have reactivecall and call?????")
     private func reactiveCall(request: URLRequest) -> SignalProducer<Data, Error> {
         return SignalProducer { [weak self] observer, lifetime in
+            #warning("I am suggesting to write \"guard let self = self else { return }")
             guard let weakSelf = self else { return }
             //TODO: Add do catch
             let dataRequest = weakSelf.session.request(request).responseData(queue: weakSelf.queue) { (dataResponse) in

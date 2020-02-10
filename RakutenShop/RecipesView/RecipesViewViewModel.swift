@@ -27,7 +27,9 @@ class RecipesViewViewModel {
     
     func getRecipe(keyword: String) {
         isLoading.value = true
-        context.services.searchRecipesService.getRecipes(keyword: keyword).on(value: { [weak self] (data) in
+        context.services.searchRecipesService
+            .getRecipes(keyword: keyword)
+            .on(value: { [weak self] (data) in
             if let imagesUrl = data.baseUri {
                 self?.imagesBaseUrl = imagesUrl
             }
@@ -41,6 +43,7 @@ class RecipesViewViewModel {
         }).start()
     }
     
+    #warning("this is not connected with the data downloading process")
     func buildImageUrl(id: Int) -> URL? {
         let imageSize = RecipeCollectionImageSizes.medium312by231.rawValue
         guard let  url = URL(string: imagesBaseUrl + "\(id)-\(imageSize).jpg") else { return nil }

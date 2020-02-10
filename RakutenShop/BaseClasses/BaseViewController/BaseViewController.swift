@@ -18,12 +18,19 @@ class BaseViewController: UIViewController {
         SVProgressHUD.setMaximumDismissTimeInterval(2.5)
         // Do any additional setup after loading the view.
     }
+    
+    #warning("I am thinking this function should be called after creating the object, in the init and awake from nib functions that it will be called automatically after overriding in the subclasses")
+    #warning("why the function is open?")
     open func setupView() {
     }
 
+    #warning("this also should be called in the initialization that you can just override it and it will be called automatically")
+    #warning("why the function is open?")
     open func setupViewModel() {
         
     }
+    
+    #warning("remove this kind of comments")
     /*
     // MARK: - Navigation
 

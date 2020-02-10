@@ -21,9 +21,11 @@ extension NetworkRequest {
     var customHeaders: [String: String]? { nil }
 }
 
+#warning("I am thinking this part should be changed, look in the Ihor's project, he structed it well")
 extension NetworkRequest {
     var urlRequest: URLRequest {
         guard let url = self.url else {
+            #warning("is it expected behaviour :) ?")
             fatalError("Could not form URL")
         }
         var urlRequest = URLRequest(url: url)
@@ -36,6 +38,8 @@ extension NetworkRequest {
         return urlRequest
     }
     
+    #warning("I don't like this approach overall")
+    #warning("alamofire has methods for adding url parameteres, body parameters")
     private var url: URL? {
         var urlComponents = URLComponents(string: baseURL)
         urlComponents?.path = path

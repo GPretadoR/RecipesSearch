@@ -8,6 +8,7 @@
 
 import UIKit
 
+#warning("remove NSObject if we don't need it")
 class Model: NSObject {
 
 }

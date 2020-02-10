@@ -8,6 +8,7 @@
 
 import UIKit
 
+#warning("in the Alamofire should be method type, it would be good decision to use the Alamofire methods")
 enum HTTPMethod: String {
     case get
     case post

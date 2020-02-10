@@ -9,6 +9,7 @@ struct SearchRecipeResponseObject: Codable {
 	let expires: Int?
 	let isStale: Bool?
 
+    #warning("I suppose we don't need this enum and init also")
 	enum CodingKeys: String, CodingKey {
 
 		case results

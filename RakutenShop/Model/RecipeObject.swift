@@ -7,6 +7,7 @@ struct RecipeObject: Codable {
 	let image: String?
 	let imageUrls: [String]?
 
+    #warning("I suppose we don't need this enum and init")
 	enum CodingKeys: String, CodingKey {
 
 		case id
