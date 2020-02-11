@@ -9,19 +9,15 @@
 import UIKit
 
 class BaseCoordinator: Coordinator {
-    
-    var navigationController: UINavigationController?
-    
-    var storyboard: UIStoryboard {
-        UIStoryboard(name: "Main", bundle: nil)
-    }
+
+    var rootViewController: UIViewController?
     
     init(rootController: UINavigationController) {
-        self.navigationController = rootController
+        self.rootViewController = rootController
     }
     
     init(coordinator: BaseCoordinator) {
-        self.navigationController = coordinator.navigationController
+        self.rootViewController = coordinator.rootViewController
     }
     
     func start() {}

@@ -16,9 +16,12 @@ class RecipesViewViewModel {
     weak var coordinatorDelegate: RecipesViewCoordinatorDelegate?
     private let context: Context
     private var imagesBaseUrl: String = ""
+    
     var recipeItems = MutableProperty<[RecipeObject]>([])
     var isLoading = MutableProperty<Bool>(false)
     var errorMessage = MutableProperty<String>("")
+    
+    let debounceInterval = 0.8
     
     init(context: Context, coordinatorDelegate: RecipesViewCoordinatorDelegate) {
         self.context = context
@@ -27,7 +30,9 @@ class RecipesViewViewModel {
     
     func getRecipe(keyword: String) {
         isLoading.value = true
-        context.services.searchRecipesService.getRecipes(keyword: keyword).on(value: { [weak self] (data) in
+        context.services.searchRecipesService
+            .getRecipes(keyword: keyword)
+            .on(value: { [weak self] (data) in
             if let imagesUrl = data.baseUri {
                 self?.imagesBaseUrl = imagesUrl
             }
@@ -42,6 +47,7 @@ class RecipesViewViewModel {
     }
     
     func buildImageUrl(id: Int) -> URL? {
+        guard imagesBaseUrl != "" else { return nil }
         let imageSize = RecipeCollectionImageSizes.medium312by231.rawValue
         guard let  url = URL(string: imagesBaseUrl + "\(id)-\(imageSize).jpg") else { return nil }
         return url

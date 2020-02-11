@@ -17,8 +17,7 @@ class RecipesViewCoordinator: BaseCoordinator {
         self.window = window
         let navigationController = UINavigationController()
         super.init(rootController: navigationController)
-        
-        self.navigationController = navigationController
+
         if let viewController = R.storyboard.main.recipesViewController() {
             navigationController.pushViewController(viewController, animated: false)
             let viewModel = RecipesViewViewModel(context: context, coordinatorDelegate: self)
@@ -27,7 +26,7 @@ class RecipesViewCoordinator: BaseCoordinator {
     }
     
     override func start() {
-        window.rootViewController = navigationController
+        window.rootViewController = rootViewController
         window.makeKeyAndVisible()
     }
 }

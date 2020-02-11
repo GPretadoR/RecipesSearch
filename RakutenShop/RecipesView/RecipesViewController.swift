@@ -19,22 +19,30 @@ class RecipesViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-
+        
         recipesCollectionView.dataSource = self
         recipesCollectionView.delegate = self
-        self.title = "Search Recipes"
-        setupViewModel()
+        self.title = R.string.localizable.recipesNavigationTitle()
+       
+    }
 
+    // MARK: - Setup View -
+    override func setupView() {
+        rcTextField.placeholder = R.string.localizable.recipesSearchFieldPlacholder()
     }
     
     // MARK: - Setup ViewModel -
     
     override func setupViewModel() {
         guard let viewModel = viewModel else { return }
-        rcTextField.reactive.continuousTextValues.skip(first: 1).debounce(0.8, on: QueueScheduler.main).observeValues { (text) in
+        
+        rcTextField.reactive.continuousTextValues
+            .skip(while: {$0 == ""})
+            .debounce( viewModel.debounceInterval, on: QueueScheduler.main)
+            .observeValues { (text) in
             viewModel.getRecipe(keyword: text)
         }
+        
         reactive.makeBindingTarget { (weakself, object) in
             self.recipesCollectionView.reloadData()
             } <~ viewModel.recipeItems
@@ -72,16 +80,14 @@ extension RecipesViewController: UICollectionViewDataSource {
             if let title = recipe.title {
                 cell.recipesTitleLabel.text = title
             }
-            if let id = recipe.id {
-                if let url = viewModel?.buildImageUrl(id: id) {
-                    cell.recipesImageView?.af_setImage(withURL: url,
-                                                       placeholderImage: R.image.recipePlaceholderImage(),
-                                                       filter: nil,
-                                                       progress: nil,
-                                                       progressQueue: DispatchQueue.global(),
-                                                       imageTransition: UIImageView.ImageTransition.noTransition,
-                                                       runImageTransitionIfCached: true, completion: nil)
-                }
+            if let id = recipe.id, let url = viewModel?.buildImageUrl(id: id) {
+                cell.recipesImageView?.af_setImage(withURL: url,
+                                                   placeholderImage: R.image.recipePlaceholderImage(),
+                                                   filter: nil,
+                                                   progress: nil,
+                                                   progressQueue: DispatchQueue.global(),
+                                                   imageTransition: UIImageView.ImageTransition.noTransition,
+                                                   runImageTransitionIfCached: true, completion: nil)
             }
         }
         

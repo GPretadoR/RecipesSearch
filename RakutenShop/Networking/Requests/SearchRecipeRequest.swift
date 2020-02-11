@@ -6,16 +6,14 @@
 //  Copyright © 2020 Garnik Ghazaryan. All rights reserved.
 //
 
+import Alamofire
+
 class SearchRecipeRequest: NetworkRequest {
     
     private let keyword: String
     
     init(keyword: String) {
         self.keyword = keyword
-    }
-    
-    var baseURL: String {
-        Environment.getEnvironment(env: .dev)
     }
     
     var path: String {
@@ -26,7 +24,7 @@ class SearchRecipeRequest: NetworkRequest {
         .get
     }
     
-    var parameters: [String: String]? {
+    var queryParameters: [String: String]? {
         ["query": keyword]
     }
 }
