@@ -37,10 +37,13 @@ class RecipesViewController: BaseViewController {
         guard let viewModel = viewModel else { return }
         
         rcTextField.reactive.continuousTextValues
-            .skip(while: {$0 == ""})
+//            .skip(while: {$0 == ""})
+            .filter({ !String($0).isEmpty })
             .debounce( viewModel.debounceInterval, on: QueueScheduler.main)
+            
             .observeValues { (text) in
-            viewModel.getRecipe(keyword: text)
+            print("text: ", text)
+//            viewModel.getRecipe(keyword: text)
         }
         
         reactive.makeBindingTarget { (weakself, object) in

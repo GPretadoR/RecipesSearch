@@ -32,8 +32,9 @@ class RecipesViewCoordinator: BaseCoordinator {
 }
 
 extension RecipesViewCoordinator: RecipesViewCoordinatorDelegate {
-    func didSelectItem(at indexPath: IndexPath) {
-        
+    func didSelectRecipe(recipe: RecipeObject) {
+        let recipeDetailCoordinator = RecipeDetailViewCoordinator(context: context, coordinator: self)
+        recipeDetailCoordinator.recipeObject = recipe
+        recipeDetailCoordinator.start()
     }
-    
 }

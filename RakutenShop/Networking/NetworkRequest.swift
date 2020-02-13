@@ -26,7 +26,7 @@ extension NetworkRequest {
     var queryParameters: [String: String]? { nil }
     var bodyParameters: [String: String]? { nil }
     var customHeaders: [String: String]? { nil }
-    var authorizationStrategy: AuthorizationStrategy? { nil }
+    var authorizationStrategy: AuthorizationStrategy? { .token }
     var timeoutInterval: TimeInterval? { 10 }
 }
 /*
