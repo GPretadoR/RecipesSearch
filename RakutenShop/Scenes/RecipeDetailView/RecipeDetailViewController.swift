@@ -159,6 +159,12 @@ extension RecipeDetailViewController: UICollectionViewDataSource {
     }
 }
 
+extension RecipeDetailViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        viewModel?.didSelectSimilarItem(indexPath: indexPath)
+    }
+}
+
 extension RecipeDetailViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: 156, height: 176)

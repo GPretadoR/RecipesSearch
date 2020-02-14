@@ -68,4 +68,10 @@ class RecipeDetailViewViewModel: BaseViewModel {
     func didSelectItem(index: IndexPath) {        
         coordinatorDelegate?.didTapInstructionTableViewCell(instructions: analyzedInstructions.value[index.row])
     }
+    
+    func didSelectSimilarItem(indexPath: IndexPath) {
+        let recipe = similarRecipes.value[indexPath.item]
+        recipeObject?.value = recipe
+        getInfo()
+    }
 }
