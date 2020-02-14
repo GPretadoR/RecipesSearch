@@ -13,7 +13,7 @@ class RecipeDetailViewCoordinator: BaseCoordinator {
 
     private let context: Context
     private var viewController: RecipeDetailViewController?
-    var recipeDetailCoordinator: StepListViewCoordinator?
+    private var recipeDetailCoordinator: StepListViewCoordinator?
     var recipeObject: RecipeObject?
     
     init(context: Context, coordinator: BaseCoordinator) {

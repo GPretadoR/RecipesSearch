@@ -35,6 +35,9 @@
 		8DA0430623F59F0900E253CE /* StepListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA0430523F59F0900E253CE /* StepListViewController.swift */; };
 		8DA0430923F5A05900E253CE /* StepListViewCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA0430823F5A05900E253CE /* StepListViewCoordinator.swift */; };
 		8DA0430B23F5A06900E253CE /* StepListViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA0430A23F5A06900E253CE /* StepListViewViewModel.swift */; };
+		8DA0430D23F6CF4300E253CE /* DetailedInstructionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA0430C23F6CF4300E253CE /* DetailedInstructionsViewController.swift */; };
+		8DA0431023F6CF4D00E253CE /* DetailedInstructionsViewCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA0430E23F6CF4C00E253CE /* DetailedInstructionsViewCoordinator.swift */; };
+		8DA0431123F6CF4D00E253CE /* DetailedInstructionsViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA0430F23F6CF4C00E253CE /* DetailedInstructionsViewViewModel.swift */; };
 		8DB13A6223E9BB2500274120 /* NetworkServiceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DB13A5E23E9BB2500274120 /* NetworkServiceProvider.swift */; };
 		8DB13A6323E9BB2500274120 /* NetworkRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DB13A5F23E9BB2500274120 /* NetworkRequest.swift */; };
 		8DB13A6523E9BB2500274120 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DB13A6123E9BB2500274120 /* Environment.swift */; };
@@ -101,6 +104,9 @@
 		8DA0430523F59F0900E253CE /* StepListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepListViewController.swift; sourceTree = "<group>"; };
 		8DA0430823F5A05900E253CE /* StepListViewCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepListViewCoordinator.swift; sourceTree = "<group>"; };
 		8DA0430A23F5A06900E253CE /* StepListViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepListViewViewModel.swift; sourceTree = "<group>"; };
+		8DA0430C23F6CF4300E253CE /* DetailedInstructionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedInstructionsViewController.swift; sourceTree = "<group>"; };
+		8DA0430E23F6CF4C00E253CE /* DetailedInstructionsViewCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailedInstructionsViewCoordinator.swift; sourceTree = "<group>"; };
+		8DA0430F23F6CF4C00E253CE /* DetailedInstructionsViewViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailedInstructionsViewViewModel.swift; sourceTree = "<group>"; };
 		8DB13A5E23E9BB2500274120 /* NetworkServiceProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkServiceProvider.swift; sourceTree = "<group>"; };
 		8DB13A5F23E9BB2500274120 /* NetworkRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkRequest.swift; sourceTree = "<group>"; };
 		8DB13A6123E9BB2500274120 /* Environment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
@@ -230,6 +236,7 @@
 				8DED8CB523E5C43500A138D2 /* RecipesView */,
 				8DA042DF23F2CEAB00E253CE /* RecipeDetailView */,
 				8DA0430723F59F0F00E253CE /* StepListView */,
+				8DA0431223F6CF6500E253CE /* DetailedInstructionsView */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -282,6 +289,16 @@
 				8DA0430823F5A05900E253CE /* StepListViewCoordinator.swift */,
 			);
 			path = StepListView;
+			sourceTree = "<group>";
+		};
+		8DA0431223F6CF6500E253CE /* DetailedInstructionsView */ = {
+			isa = PBXGroup;
+			children = (
+				8DA0430C23F6CF4300E253CE /* DetailedInstructionsViewController.swift */,
+				8DA0430F23F6CF4C00E253CE /* DetailedInstructionsViewViewModel.swift */,
+				8DA0430E23F6CF4C00E253CE /* DetailedInstructionsViewCoordinator.swift */,
+			);
+			path = DetailedInstructionsView;
 			sourceTree = "<group>";
 		};
 		8DB2E4E523E9ADD300282B00 /* Requests */ = {
@@ -605,6 +622,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8DA0431023F6CF4D00E253CE /* DetailedInstructionsViewCoordinator.swift in Sources */,
 				8DF210D523EAF24400592024 /* Context.swift in Sources */,
 				8DA042CE23ED928200E253CE /* Constants.swift in Sources */,
 				8DA042FE23F4032D00E253CE /* Temperature.swift in Sources */,
@@ -612,6 +630,7 @@
 				8DF210E523EB004000592024 /* RecipesViewCoordinator.swift in Sources */,
 				8DA042DE23F2CEA000E253CE /* RecipeDetailViewController.swift in Sources */,
 				8DF210D723EAF26B00592024 /* Services.swift in Sources */,
+				8DA0431123F6CF4D00E253CE /* DetailedInstructionsViewViewModel.swift in Sources */,
 				8DF210D323EACC4F00592024 /* RecipesCollectionViewCell.swift in Sources */,
 				8DB13A6323E9BB2500274120 /* NetworkRequest.swift in Sources */,
 				8DA042C423EC391300E253CE /* BaseViewController.swift in Sources */,
@@ -629,6 +648,7 @@
 				8DA0430423F597A000E253CE /* BaseViewModel.swift in Sources */,
 				8DA042E123F2DC7800E253CE /* RecipeDetailViewViewModel.swift in Sources */,
 				8D8DA88223EB02EA00C4F8D1 /* R.generated.swift in Sources */,
+				8DA0430D23F6CF4300E253CE /* DetailedInstructionsViewController.swift in Sources */,
 				8DED8C9423E5BCB600A138D2 /* SceneDelegate.swift in Sources */,
 				8DB13A6523E9BB2500274120 /* Environment.swift in Sources */,
 				8DA042EB23F3F0B400E253CE /* GetAnalyzedInstructionsService.swift in Sources */,

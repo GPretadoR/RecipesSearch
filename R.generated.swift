@@ -138,19 +138,21 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.reuseIdentifier` struct is generated, and contains static references to 2 reuse identifiers.
+  /// This `R.reuseIdentifier` struct is generated, and contains static references to 3 reuse identifiers.
   struct reuseIdentifier {
     /// Reuse identifier `InstructionsTableViewCell`.
     static let instructionsTableViewCell: Rswift.ReuseIdentifier<UIKit.UITableViewCell> = Rswift.ReuseIdentifier(identifier: "InstructionsTableViewCell")
     /// Reuse identifier `RecipesCollectionViewCell`.
     static let recipesCollectionViewCell: Rswift.ReuseIdentifier<RecipesCollectionViewCell> = Rswift.ReuseIdentifier(identifier: "RecipesCollectionViewCell")
+    /// Reuse identifier `StepDescriptionTableViewCell`.
+    static let stepDescriptionTableViewCell: Rswift.ReuseIdentifier<UIKit.UITableViewCell> = Rswift.ReuseIdentifier(identifier: "StepDescriptionTableViewCell")
 
     fileprivate init() {}
   }
 
   /// This `R.string` struct is generated, and contains static references to 2 localization tables.
   struct string {
-    /// This `R.string.localizable` struct is generated, and contains static references to 8 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 10 localization keys.
     struct localizable {
       /// Value: Calories: %@
       static let recipeDetailCaloriesLabelText = Rswift.StringResource(key: "recipeDetail.caloriesLabel.text", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
@@ -160,8 +162,12 @@ struct R: Rswift.Validatable {
       static let recipeDetailInstructionsNameDishDefaultText = Rswift.StringResource(key: "recipeDetail.instructionsNameDish.defaultText", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Enter Recipe Name
       static let recipesSearchFieldPlacholder = Rswift.StringResource(key: "recipes.searchField.placholder", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: Equipments
+      static let detailedStepesTableViewHeaderEquipmentsText = Rswift.StringResource(key: "detailedStepes.tableViewHeaderEquipments.text", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Fats: %@
       static let recipeDetailFatsLabelText = Rswift.StringResource(key: "recipeDetail.fatsLabel.text", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: Ingredients
+      static let detailedStepesTableViewHeaderIngredientsText = Rswift.StringResource(key: "detailedStepes.tableViewHeaderIngredients.text", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Proteins: %@
       static let recipeDetailProteinsLabelText = Rswift.StringResource(key: "recipeDetail.proteinsLabel.text", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Search Recipes
@@ -227,6 +233,19 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("recipes.searchField.placholder", bundle: bundle, comment: "")
       }
 
+      /// Value: Equipments
+      static func detailedStepesTableViewHeaderEquipmentsText(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("detailedStepes.tableViewHeaderEquipments.text", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "detailedStepes.tableViewHeaderEquipments.text"
+        }
+
+        return NSLocalizedString("detailedStepes.tableViewHeaderEquipments.text", bundle: bundle, comment: "")
+      }
+
       /// Value: Fats: %@
       static func recipeDetailFatsLabelText(_ value1: String, preferredLanguages: [String]? = nil) -> String {
         guard let preferredLanguages = preferredLanguages else {
@@ -240,6 +259,19 @@ struct R: Rswift.Validatable {
 
         let format = NSLocalizedString("recipeDetail.fatsLabel.text", bundle: bundle, comment: "")
         return String(format: format, locale: locale, value1)
+      }
+
+      /// Value: Ingredients
+      static func detailedStepesTableViewHeaderIngredientsText(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("detailedStepes.tableViewHeaderIngredients.text", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "detailedStepes.tableViewHeaderIngredients.text"
+        }
+
+        return NSLocalizedString("detailedStepes.tableViewHeaderIngredients.text", bundle: bundle, comment: "")
       }
 
       /// Value: Proteins: %@
@@ -387,10 +419,15 @@ struct _R: Rswift.Validatable {
       typealias InitialController = RecipesViewController
 
       let bundle = R.hostingBundle
+      let detailedInstructionsViewController = StoryboardViewControllerResource<DetailedInstructionsViewController>(identifier: "DetailedInstructionsViewController")
       let name = "Main"
       let recipeDetailViewController = StoryboardViewControllerResource<RecipeDetailViewController>(identifier: "RecipeDetailViewController")
       let recipesViewController = StoryboardViewControllerResource<RecipesViewController>(identifier: "RecipesViewController")
       let stepListViewController = StoryboardViewControllerResource<StepListViewController>(identifier: "StepListViewController")
+
+      func detailedInstructionsViewController(_: Void = ()) -> DetailedInstructionsViewController? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: detailedInstructionsViewController)
+      }
 
       func recipeDetailViewController(_: Void = ()) -> RecipeDetailViewController? {
         return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: recipeDetailViewController)
@@ -407,6 +444,7 @@ struct _R: Rswift.Validatable {
       static func validate() throws {
         if #available(iOS 11.0, tvOS 11.0, *) {
         }
+        if _R.storyboard.main().detailedInstructionsViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'detailedInstructionsViewController' could not be loaded from storyboard 'Main' as 'DetailedInstructionsViewController'.") }
         if _R.storyboard.main().recipeDetailViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'recipeDetailViewController' could not be loaded from storyboard 'Main' as 'RecipeDetailViewController'.") }
         if _R.storyboard.main().recipesViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'recipesViewController' could not be loaded from storyboard 'Main' as 'RecipesViewController'.") }
         if _R.storyboard.main().stepListViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'stepListViewController' could not be loaded from storyboard 'Main' as 'StepListViewController'.") }

@@ -19,6 +19,7 @@ class StepListViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         stepListTableView.dataSource = self
+        stepListTableView.delegate = self
     }
 
     override func setupViewModel() {
@@ -45,5 +46,11 @@ extension StepListViewController: UITableViewDataSource {
             cell.detailTextLabel?.text = stepText
         }
         return cell
+    }
+}
+
+extension StepListViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        viewModel?.didSelectRow(indexPath: indexPath)
     }
 }
