@@ -8,16 +8,27 @@
 
 import ReactiveSwift
 
-class RecipeDetailViewViewModel {
+protocol RecipeDetailViewCoordinatorDelegate: class {
+    func didTapSaveButton()
+    func didTapInstructionTableViewCell(instructions: AnalyzedInstructionsResponseObject)
+    func didTapSimilarCollectionViewCell()
+}
+
+class RecipeDetailViewViewModel: BaseViewModel {
 
     private let context: Context
+    weak var coordinatorDelegate: RecipeDetailViewCoordinatorDelegate?
+    
     var recipeObject: MutableProperty<RecipeObject>?
     
-    var nutritionsObject: MutableProperty<NutritionsResponseObject>?
-    var analyzedInstructions: MutableProperty<[AnalyzedInstructionsResponseObject]>?
+    var nutritionsObject = MutableProperty<NutritionsResponseObject>(NutritionsResponseObject(calories: "", carbs: "", fat: "", protein: "", bad: [], good: []))
+    var analyzedInstructions = MutableProperty<[AnalyzedInstructionsResponseObject]>([])
+    var similarRecipes = MutableProperty<[RecipeObject]>([])
     
-    init(context: Context) {
+    init(context: Context, coordinatorDelegate: RecipeDetailViewCoordinatorDelegate) {
         self.context = context
+        self.coordinatorDelegate = coordinatorDelegate
+        super.init()
     }
     
     func buildImageUrl(imageName: String) -> URL? {
@@ -28,17 +39,33 @@ class RecipeDetailViewViewModel {
     
     func getInfo() {        
         guard let recipeId = recipeObject?.value.id else { return }
-        context.services.recipeNutritionService.getNutritions(id: recipeId).on(value: {  nutritions in
-            self.nutritionsObject = MutableProperty<NutritionsResponseObject>(nutritions)
-//            self?.nutritionsObject?.
-        }).on(failed: { error in
-            print("Error nut", error)
+        isLoading.value = true
+        context.services.recipeNutritionService.getNutritions(id: recipeId).on(value: { [weak self] nutritions in
+            self?.nutritionsObject.value = nutritions
+            self?.isLoading.value = false
+        }).on(failed: { [weak self] error in
+            self?.isLoading.value = false
+            self?.errorMessage.value = error.localizedDescription
         }).start()
         
         context.services.recipeInstructionService.getAnalyzedInstructions(id: recipeId).on(value: { [weak self] analyzedIngredientsObject in
-            self?.analyzedInstructions = MutableProperty<[AnalyzedInstructionsResponseObject]>(analyzedIngredientsObject)
-        }).on(failed: { error in
-            print("Error inst", error)
+            self?.analyzedInstructions.value = analyzedIngredientsObject
+            self?.isLoading.value = false
+        }).on(failed: { [weak self] error in
+            self?.isLoading.value = false
+            self?.errorMessage.value = error.localizedDescription
         }).start()
+        
+        context.services.getSimilarRecipes.getSimilarRecipes(id: recipeId).on(value: { [weak self] similarRecipes in
+            self?.isLoading.value = false
+            self?.similarRecipes.value = similarRecipes
+        }).on(failed: { [weak self] error in
+            self?.isLoading.value = false
+            self?.errorMessage.value = error.localizedDescription
+        }).start()
+    }
+    
+    func didSelectItem(index: IndexPath) {        
+        coordinatorDelegate?.didTapInstructionTableViewCell(instructions: analyzedInstructions.value[index.row])
     }
 }

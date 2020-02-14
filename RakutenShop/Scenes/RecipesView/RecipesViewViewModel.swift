@@ -11,7 +11,7 @@ protocol RecipesViewCoordinatorDelegate: class {
     func didSelectRecipe(recipe: RecipeObject)
 }
 
-class RecipesViewViewModel {
+class RecipesViewViewModel: BaseViewModel {
     
     weak var coordinatorDelegate: RecipesViewCoordinatorDelegate?
     private let context: Context
@@ -22,14 +22,13 @@ class RecipesViewViewModel {
     }
     
     var recipeItems = MutableProperty<[RecipeObject]>([])
-    var isLoading = MutableProperty<Bool>(false)
-    var errorMessage = MutableProperty<String>("")
     
     let debounceInterval = 0.8
     
     init(context: Context, coordinatorDelegate: RecipesViewCoordinatorDelegate) {
         self.context = context
         self.coordinatorDelegate = coordinatorDelegate
+        super.init()
     }
     
     func getRecipe(keyword: String) {

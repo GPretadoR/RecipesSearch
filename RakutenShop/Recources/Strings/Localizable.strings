@@ -9,7 +9,9 @@
 "recipes.navigation.title" = "Search Recipes";
 "recipes.searchField.placholder" = "Enter Recipe Name";
 
-"recipeDetail.caloriesLabel.text"   = "Calories %@";
-"recipeDetail.carbsLabel.text"      = "Carbs %@";
-"recipeDetail.fatsLabel.text"       = "Fats %@";
-"recipeDetail.proteinsLabel.text"   = "Proteins %@";
+"recipeDetail.caloriesLabel.text"   = "Calories: %@";
+"recipeDetail.carbsLabel.text"      = "Carbs: %@";
+"recipeDetail.fatsLabel.text"       = "Fats: %@";
+"recipeDetail.proteinsLabel.text"   = "Proteins: %@";
+"recipeDetail.instructionsStepCount.text" = "Steps: %@";
+"recipeDetail.instructionsNameDish.defaultText" = "Dish: %@";

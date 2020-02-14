@@ -12,10 +12,12 @@ class Services {
     let searchRecipesService: SearchRecipesService
     let recipeNutritionService: GetNutritionsService
     let recipeInstructionService: GetAnalyzedInstructionsService
+    let getSimilarRecipes: GetSimilarRecipesService
     
     init() {
         self.searchRecipesService = SearchRecipesService(searchRequest: networkServiceProvider)
         self.recipeNutritionService = GetNutritionsService(nutritionsRequest: networkServiceProvider)
         self.recipeInstructionService = GetAnalyzedInstructionsService(analyzedInstructionsRequest: networkServiceProvider)
+        self.getSimilarRecipes = GetSimilarRecipesService(similarRecipesRequest: networkServiceProvider)
     }
 }

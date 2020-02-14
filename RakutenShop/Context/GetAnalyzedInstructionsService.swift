@@ -17,7 +17,7 @@ class GetAnalyzedInstructionsService {
     }
     
     func getAnalyzedInstructions(id: Int) -> SignalProducer<[AnalyzedInstructionsResponseObject], Error> {
-        let recipeNutritions = RecipeAnalyzedInstructionsRequest(id: id)
-        return analyzedInstructionsRequest.requestJson(request: recipeNutritions, decodeType: [AnalyzedInstructionsResponseObject].self)
+        let analyzedInstructions = RecipeAnalyzedInstructionsRequest(id: id)
+        return analyzedInstructionsRequest.requestJson(request: analyzedInstructions, decodeType: [AnalyzedInstructionsResponseObject].self)
     }
 }

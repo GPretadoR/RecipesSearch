@@ -26,6 +26,9 @@ class RecipesViewController: BaseViewController {
        
     }
 
+    override func viewWillDisappear(_ animated: Bool) {
+        rcTextField.resignFirstResponder()
+    }
     // MARK: - Setup View -
     override func setupView() {
         rcTextField.placeholder = R.string.localizable.recipesSearchFieldPlacholder()
@@ -37,13 +40,11 @@ class RecipesViewController: BaseViewController {
         guard let viewModel = viewModel else { return }
         
         rcTextField.reactive.continuousTextValues
-//            .skip(while: {$0 == ""})
             .filter({ !String($0).isEmpty })
             .debounce( viewModel.debounceInterval, on: QueueScheduler.main)
-            
+            .skipRepeats()
             .observeValues { (text) in
-            print("text: ", text)
-//            viewModel.getRecipe(keyword: text)
+                viewModel.getRecipe(keyword: text)
         }
         
         reactive.makeBindingTarget { (weakself, object) in
@@ -56,17 +57,17 @@ class RecipesViewController: BaseViewController {
             }
         }
         
+        viewModel.errorMessage.producer.skip(first: 1).startWithValues { (errorMessage) in
+            DispatchQueue.main.async {
+                SVProgressHUD.showError(withStatus: errorMessage)
+            }
+        }
+        
         viewModel.recipeItems.producer.skip(first: 1).startWithValues { (recipes) in
             if recipes.count == 0 {
                 DispatchQueue.main.async {
                     SVProgressHUD.showInfo(withStatus: "No Results")
                 }
-            }
-        }
-        
-        viewModel.errorMessage.producer.skip(first: 1).startWithValues { (errorMessage) in
-            DispatchQueue.main.async {
-                SVProgressHUD.showError(withStatus: errorMessage)
             }
         }
     }
