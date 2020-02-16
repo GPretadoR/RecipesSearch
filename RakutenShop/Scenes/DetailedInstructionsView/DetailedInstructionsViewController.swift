@@ -26,11 +26,11 @@ class DetailedInstructionsViewController: BaseViewController {
     
     override func setupViewModel() {
         guard let viewModel = viewModel else { return }
-        reactive.makeBindingTarget { (localSelf, _) in
-            if let number = object.number {
+        reactive.makeBindingTarget { (localSelf, instructionObject) in
+            if let number = instructionObject.number {
                 self.title = R.string.localizable.recipeDetailInstructionsStepCountText("\(number)")
             }
-            self.instructionsTextLabel.text = object.step
+            self.instructionsTextLabel.text = instructionObject.step
             self.stepDescriptionTableView.reloadData()
             } <~ viewModel.steps
     }
