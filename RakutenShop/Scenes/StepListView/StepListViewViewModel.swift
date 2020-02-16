@@ -13,16 +13,16 @@ protocol StepListViewCoordinatorDelegate: class {
 }
 
 class StepListViewViewModel: BaseViewModel {
-
+    
     private let context: Context
     weak var coordinatorDelegate: StepListViewCoordinatorDelegate?
-
-    var analyzedInstructions = MutableProperty<AnalyzedInstructionsResponseObject>(AnalyzedInstructionsResponseObject(name: "", steps: []))
     
-    init(context: Context, coordinatorDelegate: StepListViewCoordinatorDelegate) {
+    var analyzedInstructions: MutableProperty<AnalyzedInstructionsResponseObject>
+    
+    init(context: Context, coordinatorDelegate: StepListViewCoordinatorDelegate, analyzedInstructions: AnalyzedInstructionsResponseObject) {
         self.context = context
         self.coordinatorDelegate = coordinatorDelegate
-        super.init()
+        self.analyzedInstructions = MutableProperty<AnalyzedInstructionsResponseObject>(analyzedInstructions)
     }
     
     func didSelectRow(indexPath: IndexPath) {

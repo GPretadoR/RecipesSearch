@@ -56,7 +56,7 @@ class RecipeDetailViewController: BaseViewController {
             }
         }
         
-        viewModel.recipeObject?.producer.startWithValues({ [unowned self] (repiceObject) in
+        viewModel.recipeObject.producer.startWithValues({ [unowned self] (repiceObject) in
             DispatchQueue.main.async {
                 self.updateUI(recipeObject: repiceObject)
             }
@@ -64,7 +64,8 @@ class RecipeDetailViewController: BaseViewController {
         
         viewModel.nutritionsObject.producer.startWithValues({ [unowned self] (nutritionsObject) in
             DispatchQueue.main.async {
-                self.updateNutritions(nutritionsObject: nutritionsObject)
+                guard let nutritionObject = nutritionsObject else { return }
+                self.updateNutritions(nutritionsObject: nutritionObject)
             }
         })
         
@@ -72,12 +73,12 @@ class RecipeDetailViewController: BaseViewController {
 //            print(instructions)
 //        })
     
-        reactive.makeBindingTarget { (weakself, object) in
-            self.instructionsTableView.reloadData()
+        reactive.makeBindingTarget { (localSelf, _)  in
+            localSelf.instructionsTableView.reloadData()
             } <~ viewModel.analyzedInstructions
         
-        reactive.makeBindingTarget { (weakself, object) in
-            self.similarRecipesCollectionView.reloadData()
+        reactive.makeBindingTarget { (localSelf, _) in
+            localSelf.similarRecipesCollectionView.reloadData()
             } <~ viewModel.similarRecipes
     }
     
@@ -89,7 +90,7 @@ class RecipeDetailViewController: BaseViewController {
     
     // MARK: - Helper functions -
     
-    func updateNutritions(nutritionsObject: NutritionsResponseObject) {
+    private func updateNutritions(nutritionsObject: NutritionsResponseObject) {
         guard let calories = nutritionsObject.calories,
             let carbs = nutritionsObject.carbs,
             let proteins = nutritionsObject.protein,
@@ -100,8 +101,8 @@ class RecipeDetailViewController: BaseViewController {
         proteinsLabel.text = R.string.localizable.recipeDetailProteinsLabelText(proteins)
     }
     
-    func updateUI(recipeObject: RecipeObject) {
-        self.title = recipeObject.title
+    private func updateUI(recipeObject: RecipeObject) {
+        title = recipeObject.title
         let imageName = recipeObject.image != nil ? recipeObject.image : recipeObject.imageUrls?.first
         if let imgUrl = imageName, let url = viewModel?.buildImageUrl(imageName: imgUrl) {
             self.recipeImageView.af_setImage(withURL: url)

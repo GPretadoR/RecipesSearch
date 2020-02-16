@@ -35,7 +35,7 @@ class RecipesViewCoordinator: BaseCoordinator {
 
 extension RecipesViewCoordinator: RecipesViewCoordinatorDelegate {
     func didSelectRecipe(recipe: RecipeObject) {
-        recipeDetailCoordinator = RecipeDetailViewCoordinator(context: context, coordinator: self)
+        recipeDetailCoordinator = RecipeDetailViewCoordinator(context: context, coordinator: self, recipeObject: recipe)
         recipeDetailCoordinator?.recipeObject = recipe
         recipeDetailCoordinator?.start()
     }

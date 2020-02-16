@@ -142,7 +142,7 @@ class NetworkServiceProvider: NetworkServices {
         let url = request.path.nonEmpty.flatMap { baseURL.appendingPathComponent($0) } ?? baseURL
         
         var urlRequest = try URLRequest(url: url, method: request.httpMethod, headers: request.customHeaders)
-        if let authorizationStrategy = request.authorizationStrategy, authorizationStrategy == .token {
+        if request.authorizationStrategy == .token {
             let encoding = URLEncoding(destination: .queryString,
                                        arrayEncoding: .noBrackets,
                                        boolEncoding: .numeric)
@@ -160,9 +160,8 @@ class NetworkServiceProvider: NetworkServices {
         if let bodyParameters = request.bodyParameters {
             urlRequest = try JSONEncoding.default.encode(urlRequest, with: bodyParameters)
         }
-        if let timeoutInterval = request.timeoutInterval {
-            urlRequest.timeoutInterval = timeoutInterval
-        }
+        urlRequest.timeoutInterval = request.timeoutInterval
+        
         return urlRequest
     }
     

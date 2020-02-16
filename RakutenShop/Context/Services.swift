@@ -15,9 +15,9 @@ class Services {
     let getSimilarRecipes: GetSimilarRecipesService
     
     init() {
-        self.searchRecipesService = SearchRecipesService(searchRequest: networkServiceProvider)
-        self.recipeNutritionService = GetNutritionsService(nutritionsRequest: networkServiceProvider)
-        self.recipeInstructionService = GetAnalyzedInstructionsService(analyzedInstructionsRequest: networkServiceProvider)
-        self.getSimilarRecipes = GetSimilarRecipesService(similarRecipesRequest: networkServiceProvider)
+        searchRecipesService = SearchRecipesService(searchRequest: networkServiceProvider)
+        recipeNutritionService = GetNutritionsService(nutritionsRequest: networkServiceProvider)
+        recipeInstructionService = GetAnalyzedInstructionsService(analyzedInstructionsRequest: networkServiceProvider)
+        getSimilarRecipes = GetSimilarRecipesService(similarRecipesRequest: networkServiceProvider)
     }
 }

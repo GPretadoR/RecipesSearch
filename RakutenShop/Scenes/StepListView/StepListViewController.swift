@@ -24,8 +24,8 @@ class StepListViewController: BaseViewController {
 
     override func setupViewModel() {
         guard let viewModel = viewModel else { return }
-        reactive.makeBindingTarget { [unowned self] (weakself, object) in
-            self.stepListTableView.reloadData()
+        reactive.makeBindingTarget { (localSelf, _) in
+            localSelf.stepListTableView.reloadData()
             } <~ viewModel.analyzedInstructions
     }
 }
