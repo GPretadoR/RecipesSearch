@@ -14,22 +14,21 @@ class StepListViewCoordinator: BaseCoordinator {
     private let context: Context
     private var viewController: StepListViewController?
     
-    var instructions: AnalyzedInstructionsResponseObject?
+    var instructions: AnalyzedInstructionsResponseObject
     
-    init(context: Context, coordinator: BaseCoordinator) {
+    init(context: Context, coordinator: BaseCoordinator, instructions: AnalyzedInstructionsResponseObject) {
         self.context = context
+        self.instructions = instructions
         super.init(coordinator: coordinator)
-        self.viewController = R.storyboard.main.stepListViewController()
+        viewController = R.storyboard.main.stepListViewController()
         guard let viewController = viewController else { return }
-        let viewModel = StepListViewViewModel(context: context)
+        let viewModel = StepListViewViewModel(context: context, analyzedInstructions: instructions)
         viewController.viewModel = viewModel
     }
     
     override func start() {
         guard let viewController = viewController, let rootNavController = rootViewController as? UINavigationController else { return }
         rootNavController.pushViewController(viewController, animated: true)
-        guard let instructions = instructions else { return }
-        viewController.viewModel?.analyzedInstructions = MutableProperty<AnalyzedInstructionsResponseObject>(instructions)
     }
     
 }

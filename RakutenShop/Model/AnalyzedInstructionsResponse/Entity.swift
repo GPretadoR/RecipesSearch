@@ -1,3 +1,5 @@
+//  Created on February 12, 2020
+
 import Foundation
 struct Entity: Codable {
 	let id: Int?

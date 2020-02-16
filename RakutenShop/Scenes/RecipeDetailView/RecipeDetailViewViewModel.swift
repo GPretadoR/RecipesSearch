@@ -19,16 +19,18 @@ class RecipeDetailViewViewModel: BaseViewModel {
     private let context: Context
     weak var coordinatorDelegate: RecipeDetailViewCoordinatorDelegate?
     
-    var recipeObject: MutableProperty<RecipeObject>?
+    var recipeObject: MutableProperty<RecipeObject>
     
-    var nutritionsObject = MutableProperty<NutritionsResponseObject>(NutritionsResponseObject(calories: "", carbs: "", fat: "", protein: "", bad: [], good: []))
+    var nutritionsObject = MutableProperty<NutritionsResponseObject?>(nil)
     var analyzedInstructions = MutableProperty<[AnalyzedInstructionsResponseObject]>([])
     var similarRecipes = MutableProperty<[RecipeObject]>([])
     
-    init(context: Context, coordinatorDelegate: RecipeDetailViewCoordinatorDelegate) {
+    init(context: Context, coordinatorDelegate: RecipeDetailViewCoordinatorDelegate, recipeObject: RecipeObject) {
         self.context = context
         self.coordinatorDelegate = coordinatorDelegate
+        self.recipeObject = MutableProperty<RecipeObject>(recipeObject)
         super.init()
+        getInfo()
     }
     
     func buildImageUrl(imageName: String) -> URL? {
@@ -38,7 +40,7 @@ class RecipeDetailViewViewModel: BaseViewModel {
     }
     
     func getInfo() {        
-        guard let recipeId = recipeObject?.value.id else { return }
+        guard let recipeId = recipeObject.value.id else { return }
         isLoading.value = true
         context.services.recipeNutritionService.getNutritions(id: recipeId).on(value: { [weak self] nutritions in
             self?.nutritionsObject.value = nutritions

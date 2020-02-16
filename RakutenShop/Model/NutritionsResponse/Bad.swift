@@ -1,6 +1,5 @@
 //
 //  Bad.swift
-//  Model Generated using http://www.jsoncafe.com/ 
 //  Created on February 12, 2020
 
 import Foundation

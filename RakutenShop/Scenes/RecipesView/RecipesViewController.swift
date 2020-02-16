@@ -22,7 +22,7 @@ class RecipesViewController: BaseViewController {
         
         recipesCollectionView.dataSource = self
         recipesCollectionView.delegate = self
-        self.title = R.string.localizable.recipesNavigationTitle()
+        title = R.string.localizable.recipesNavigationTitle()
        
     }
 
@@ -47,8 +47,8 @@ class RecipesViewController: BaseViewController {
                 viewModel.getRecipe(keyword: text)
         }
         
-        reactive.makeBindingTarget { (weakself, object) in
-            self.recipesCollectionView.reloadData()
+        reactive.makeBindingTarget { (localSelf, _) in
+            localSelf.recipesCollectionView.reloadData()
             } <~ viewModel.recipeItems
         
         viewModel.isLoading.producer.startWithValues { (showLoading) in

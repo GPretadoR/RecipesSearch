@@ -14,23 +14,21 @@ class RecipeDetailViewCoordinator: BaseCoordinator {
     private let context: Context
     private var viewController: RecipeDetailViewController?
     var recipeDetailCoordinator: StepListViewCoordinator?
-    var recipeObject: RecipeObject?
+    var recipeObject: RecipeObject
     
-    init(context: Context, coordinator: BaseCoordinator) {
+    init(context: Context, coordinator: BaseCoordinator, recipeObject: RecipeObject) {
         self.context = context
+        self.recipeObject = recipeObject
         super.init(coordinator: coordinator)
-        self.viewController = R.storyboard.main.recipeDetailViewController()
+        viewController = R.storyboard.main.recipeDetailViewController()
         guard let viewController = viewController else { return }
-        let viewModel = RecipeDetailViewViewModel(context: context, coordinatorDelegate: self)
+        let viewModel = RecipeDetailViewViewModel(context: context, coordinatorDelegate: self, recipeObject: recipeObject)
         viewController.viewModel = viewModel
     }
     
     override func start() {
         guard let viewController = viewController, let rootNavController = rootViewController as? UINavigationController else { return }
         rootNavController.pushViewController(viewController, animated: true)
-        guard let recipeObject = recipeObject else { return }
-        viewController.viewModel?.recipeObject = MutableProperty<RecipeObject>(recipeObject)
-        viewController.viewModel?.getInfo()
     }
 }
 
@@ -40,7 +38,7 @@ extension RecipeDetailViewCoordinator: RecipeDetailViewCoordinatorDelegate {
     }
     
     func didTapInstructionTableViewCell(instructions: AnalyzedInstructionsResponseObject) {
-        recipeDetailCoordinator = StepListViewCoordinator(context: context, coordinator: self)
+        recipeDetailCoordinator = StepListViewCoordinator(context: context, coordinator: self, instructions: instructions)
         recipeDetailCoordinator?.instructions = instructions
         recipeDetailCoordinator?.start()
     }

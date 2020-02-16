@@ -12,10 +12,11 @@ class StepListViewViewModel: BaseViewModel {
 
     private let context: Context
 
-    var analyzedInstructions = MutableProperty<AnalyzedInstructionsResponseObject>(AnalyzedInstructionsResponseObject(name: "", steps: []))
+    var analyzedInstructions: MutableProperty<AnalyzedInstructionsResponseObject>
     
-    init(context: Context) {
+    init(context: Context, analyzedInstructions: AnalyzedInstructionsResponseObject) {
         self.context = context
+        self.analyzedInstructions = MutableProperty<AnalyzedInstructionsResponseObject>(analyzedInstructions)
         super.init()
     }
     
