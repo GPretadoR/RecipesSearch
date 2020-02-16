@@ -22,10 +22,13 @@ class RecipesViewController: BaseViewController {
         
         recipesCollectionView.dataSource = self
         recipesCollectionView.delegate = self
-        self.title = R.string.localizable.recipesNavigationTitle()
+        title = R.string.localizable.recipesNavigationTitle()
        
     }
 
+    override func viewWillDisappear(_ animated: Bool) {
+        rcTextField.resignFirstResponder()
+    }
     // MARK: - Setup View -
     override func setupView() {
         rcTextField.placeholder = R.string.localizable.recipesSearchFieldPlacholder()
@@ -37,14 +40,15 @@ class RecipesViewController: BaseViewController {
         guard let viewModel = viewModel else { return }
         
         rcTextField.reactive.continuousTextValues
-            .skip(while: {$0 == ""})
+            .filter({ !String($0).isEmpty })
             .debounce( viewModel.debounceInterval, on: QueueScheduler.main)
+            .skipRepeats()
             .observeValues { (text) in
-            viewModel.getRecipe(keyword: text)
+                viewModel.getRecipe(keyword: text)
         }
         
-        reactive.makeBindingTarget { (weakself, object) in
-            self.recipesCollectionView.reloadData()
+        reactive.makeBindingTarget { (localSelf, _) in
+            localSelf.recipesCollectionView.reloadData()
             } <~ viewModel.recipeItems
         
         viewModel.isLoading.producer.startWithValues { (showLoading) in
@@ -53,17 +57,17 @@ class RecipesViewController: BaseViewController {
             }
         }
         
+        viewModel.errorMessage.producer.skip(first: 1).startWithValues { (errorMessage) in
+            DispatchQueue.main.async {
+                SVProgressHUD.showError(withStatus: errorMessage)
+            }
+        }
+        
         viewModel.recipeItems.producer.skip(first: 1).startWithValues { (recipes) in
             if recipes.count == 0 {
                 DispatchQueue.main.async {
                     SVProgressHUD.showInfo(withStatus: "No Results")
                 }
-            }
-        }
-        
-        viewModel.errorMessage.producer.skip(first: 1).startWithValues { (errorMessage) in
-            DispatchQueue.main.async {
-                SVProgressHUD.showError(withStatus: errorMessage)
             }
         }
     }

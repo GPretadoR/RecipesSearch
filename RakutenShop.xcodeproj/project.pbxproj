@@ -15,6 +15,26 @@
 		8DA042D123F17C3F00E253CE /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8DA042D023F17C3F00E253CE /* Localizable.strings */; };
 		8DA042D923F19E0E00E253CE /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA042D823F19E0E00E253CE /* Extensions.swift */; };
 		8DA042DB23F1A02F00E253CE /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA042DA23F1A02F00E253CE /* APIError.swift */; };
+		8DA042DE23F2CEA000E253CE /* RecipeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA042DD23F2CEA000E253CE /* RecipeDetailViewController.swift */; };
+		8DA042E123F2DC7800E253CE /* RecipeDetailViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA042E023F2DC7800E253CE /* RecipeDetailViewViewModel.swift */; };
+		8DA042E323F2DC8900E253CE /* RecipeDetailViewCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA042E223F2DC8900E253CE /* RecipeDetailViewCoordinator.swift */; };
+		8DA042E523F3EE9800E253CE /* RecipeNutritionRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA042E423F3EE9800E253CE /* RecipeNutritionRequest.swift */; };
+		8DA042E923F3F09900E253CE /* GetNutritionsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA042E823F3F09900E253CE /* GetNutritionsService.swift */; };
+		8DA042EB23F3F0B400E253CE /* GetAnalyzedInstructionsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA042EA23F3F0B400E253CE /* GetAnalyzedInstructionsService.swift */; };
+		8DA042ED23F3F0D700E253CE /* RecipeAnalyzedInstructionsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA042EC23F3F0D700E253CE /* RecipeAnalyzedInstructionsRequest.swift */; };
+		8DA042F223F3F24500E253CE /* Good.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA042EF23F3F24500E253CE /* Good.swift */; };
+		8DA042F323F3F24500E253CE /* Bad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA042F023F3F24500E253CE /* Bad.swift */; };
+		8DA042F423F3F24500E253CE /* NutritionsResponseObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA042F123F3F24500E253CE /* NutritionsResponseObject.swift */; };
+		8DA042FB23F4032D00E253CE /* Entity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA042F723F4032D00E253CE /* Entity.swift */; };
+		8DA042FC23F4032D00E253CE /* Steps.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA042F823F4032D00E253CE /* Steps.swift */; };
+		8DA042FD23F4032D00E253CE /* AnalyzedInstructionsResponseObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA042F923F4032D00E253CE /* AnalyzedInstructionsResponseObject.swift */; };
+		8DA042FE23F4032D00E253CE /* Temperature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA042FA23F4032D00E253CE /* Temperature.swift */; };
+		8DA0430023F5944300E253CE /* GetSimilarRecipesRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA042FF23F5944300E253CE /* GetSimilarRecipesRequest.swift */; };
+		8DA0430223F595CF00E253CE /* GetSimilarRecipesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA0430123F595CF00E253CE /* GetSimilarRecipesService.swift */; };
+		8DA0430423F597A000E253CE /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA0430323F597A000E253CE /* BaseViewModel.swift */; };
+		8DA0430623F59F0900E253CE /* StepListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA0430523F59F0900E253CE /* StepListViewController.swift */; };
+		8DA0430923F5A05900E253CE /* StepListViewCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA0430823F5A05900E253CE /* StepListViewCoordinator.swift */; };
+		8DA0430B23F5A06900E253CE /* StepListViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA0430A23F5A06900E253CE /* StepListViewViewModel.swift */; };
 		8DB13A6223E9BB2500274120 /* NetworkServiceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DB13A5E23E9BB2500274120 /* NetworkServiceProvider.swift */; };
 		8DB13A6323E9BB2500274120 /* NetworkRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DB13A5F23E9BB2500274120 /* NetworkRequest.swift */; };
 		8DB13A6523E9BB2500274120 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DB13A6123E9BB2500274120 /* Environment.swift */; };
@@ -61,6 +81,26 @@
 		8DA042D423F17CE100E253CE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		8DA042D823F19E0E00E253CE /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		8DA042DA23F1A02F00E253CE /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
+		8DA042DD23F2CEA000E253CE /* RecipeDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDetailViewController.swift; sourceTree = "<group>"; };
+		8DA042E023F2DC7800E253CE /* RecipeDetailViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDetailViewViewModel.swift; sourceTree = "<group>"; };
+		8DA042E223F2DC8900E253CE /* RecipeDetailViewCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDetailViewCoordinator.swift; sourceTree = "<group>"; };
+		8DA042E423F3EE9800E253CE /* RecipeNutritionRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeNutritionRequest.swift; sourceTree = "<group>"; };
+		8DA042E823F3F09900E253CE /* GetNutritionsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetNutritionsService.swift; sourceTree = "<group>"; };
+		8DA042EA23F3F0B400E253CE /* GetAnalyzedInstructionsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAnalyzedInstructionsService.swift; sourceTree = "<group>"; };
+		8DA042EC23F3F0D700E253CE /* RecipeAnalyzedInstructionsRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipeAnalyzedInstructionsRequest.swift; sourceTree = "<group>"; };
+		8DA042EF23F3F24500E253CE /* Good.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Good.swift; sourceTree = "<group>"; };
+		8DA042F023F3F24500E253CE /* Bad.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bad.swift; sourceTree = "<group>"; };
+		8DA042F123F3F24500E253CE /* NutritionsResponseObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NutritionsResponseObject.swift; sourceTree = "<group>"; };
+		8DA042F723F4032D00E253CE /* Entity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Entity.swift; sourceTree = "<group>"; };
+		8DA042F823F4032D00E253CE /* Steps.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Steps.swift; sourceTree = "<group>"; };
+		8DA042F923F4032D00E253CE /* AnalyzedInstructionsResponseObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnalyzedInstructionsResponseObject.swift; sourceTree = "<group>"; };
+		8DA042FA23F4032D00E253CE /* Temperature.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Temperature.swift; sourceTree = "<group>"; };
+		8DA042FF23F5944300E253CE /* GetSimilarRecipesRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetSimilarRecipesRequest.swift; sourceTree = "<group>"; };
+		8DA0430123F595CF00E253CE /* GetSimilarRecipesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetSimilarRecipesService.swift; sourceTree = "<group>"; };
+		8DA0430323F597A000E253CE /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
+		8DA0430523F59F0900E253CE /* StepListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepListViewController.swift; sourceTree = "<group>"; };
+		8DA0430823F5A05900E253CE /* StepListViewCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepListViewCoordinator.swift; sourceTree = "<group>"; };
+		8DA0430A23F5A06900E253CE /* StepListViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepListViewViewModel.swift; sourceTree = "<group>"; };
 		8DB13A5E23E9BB2500274120 /* NetworkServiceProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkServiceProvider.swift; sourceTree = "<group>"; };
 		8DB13A5F23E9BB2500274120 /* NetworkRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkRequest.swift; sourceTree = "<group>"; };
 		8DB13A6123E9BB2500274120 /* Environment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
@@ -143,8 +183,9 @@
 		8D8DA88923EC24E500C4F8D1 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				8D8DA88523EC243600C4F8D1 /* SearchRecipeResponseObject.swift */,
-				8D8DA88623EC243800C4F8D1 /* RecipeObject.swift */,
+				8DA042F623F3F2C400E253CE /* AnalyzedInstructionsResponse */,
+				8DA042F523F3F24B00E253CE /* NutritionsResponse */,
+				8DA042EE23F3F22300E253CE /* RecipeResponse */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -183,10 +224,73 @@
 			path = Strings;
 			sourceTree = "<group>";
 		};
+		8DA042DC23F2CE5800E253CE /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				8DED8CB523E5C43500A138D2 /* RecipesView */,
+				8DA042DF23F2CEAB00E253CE /* RecipeDetailView */,
+				8DA0430723F59F0F00E253CE /* StepListView */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		8DA042DF23F2CEAB00E253CE /* RecipeDetailView */ = {
+			isa = PBXGroup;
+			children = (
+				8DA042DD23F2CEA000E253CE /* RecipeDetailViewController.swift */,
+				8DA042E023F2DC7800E253CE /* RecipeDetailViewViewModel.swift */,
+				8DA042E223F2DC8900E253CE /* RecipeDetailViewCoordinator.swift */,
+			);
+			path = RecipeDetailView;
+			sourceTree = "<group>";
+		};
+		8DA042EE23F3F22300E253CE /* RecipeResponse */ = {
+			isa = PBXGroup;
+			children = (
+				8D8DA88523EC243600C4F8D1 /* SearchRecipeResponseObject.swift */,
+				8D8DA88623EC243800C4F8D1 /* RecipeObject.swift */,
+			);
+			path = RecipeResponse;
+			sourceTree = "<group>";
+		};
+		8DA042F523F3F24B00E253CE /* NutritionsResponse */ = {
+			isa = PBXGroup;
+			children = (
+				8DA042F023F3F24500E253CE /* Bad.swift */,
+				8DA042EF23F3F24500E253CE /* Good.swift */,
+				8DA042F123F3F24500E253CE /* NutritionsResponseObject.swift */,
+			);
+			path = NutritionsResponse;
+			sourceTree = "<group>";
+		};
+		8DA042F623F3F2C400E253CE /* AnalyzedInstructionsResponse */ = {
+			isa = PBXGroup;
+			children = (
+				8DA042F723F4032D00E253CE /* Entity.swift */,
+				8DA042F923F4032D00E253CE /* AnalyzedInstructionsResponseObject.swift */,
+				8DA042F823F4032D00E253CE /* Steps.swift */,
+				8DA042FA23F4032D00E253CE /* Temperature.swift */,
+			);
+			path = AnalyzedInstructionsResponse;
+			sourceTree = "<group>";
+		};
+		8DA0430723F59F0F00E253CE /* StepListView */ = {
+			isa = PBXGroup;
+			children = (
+				8DA0430523F59F0900E253CE /* StepListViewController.swift */,
+				8DA0430A23F5A06900E253CE /* StepListViewViewModel.swift */,
+				8DA0430823F5A05900E253CE /* StepListViewCoordinator.swift */,
+			);
+			path = StepListView;
+			sourceTree = "<group>";
+		};
 		8DB2E4E523E9ADD300282B00 /* Requests */ = {
 			isa = PBXGroup;
 			children = (
 				8DB2E4E323E9ADCF00282B00 /* SearchRecipeRequest.swift */,
+				8DA042E423F3EE9800E253CE /* RecipeNutritionRequest.swift */,
+				8DA042EC23F3F0D700E253CE /* RecipeAnalyzedInstructionsRequest.swift */,
+				8DA042FF23F5944300E253CE /* GetSimilarRecipesRequest.swift */,
 			);
 			path = Requests;
 			sourceTree = "<group>";
@@ -221,7 +325,7 @@
 				8DF210D823EAF26F00592024 /* Context */,
 				8D8DA88923EC24E500C4F8D1 /* Model */,
 				8DED8CC023E99ADC00A138D2 /* Networking */,
-				8DED8CB523E5C43500A138D2 /* RecipesView */,
+				8DA042DC23F2CE5800E253CE /* Scenes */,
 				8DED8C9F23E5BCBA00A138D2 /* Info.plist */,
 				8D8DA88023EB02CE00C4F8D1 /* Recources */,
 			);
@@ -266,6 +370,9 @@
 				8DF210D423EAF24400592024 /* Context.swift */,
 				8DF210D623EAF26B00592024 /* Services.swift */,
 				8DF210D923EAF28E00592024 /* SearchRecipesService.swift */,
+				8DA042E823F3F09900E253CE /* GetNutritionsService.swift */,
+				8DA042EA23F3F0B400E253CE /* GetAnalyzedInstructionsService.swift */,
+				8DA0430123F595CF00E253CE /* GetSimilarRecipesService.swift */,
 			);
 			path = Context;
 			sourceTree = "<group>";
@@ -275,6 +382,7 @@
 			children = (
 				8DF210E123EAFFAF00592024 /* BaseCoordinator.swift */,
 				8DF210E023EAFFAF00592024 /* Coordinator.swift */,
+				8DA0430323F597A000E253CE /* BaseViewModel.swift */,
 			);
 			path = Coordinators;
 			sourceTree = "<group>";
@@ -499,25 +607,45 @@
 			files = (
 				8DF210D523EAF24400592024 /* Context.swift in Sources */,
 				8DA042CE23ED928200E253CE /* Constants.swift in Sources */,
+				8DA042FE23F4032D00E253CE /* Temperature.swift in Sources */,
+				8DA042FB23F4032D00E253CE /* Entity.swift in Sources */,
 				8DF210E523EB004000592024 /* RecipesViewCoordinator.swift in Sources */,
+				8DA042DE23F2CEA000E253CE /* RecipeDetailViewController.swift in Sources */,
 				8DF210D723EAF26B00592024 /* Services.swift in Sources */,
 				8DF210D323EACC4F00592024 /* RecipesCollectionViewCell.swift in Sources */,
 				8DB13A6323E9BB2500274120 /* NetworkRequest.swift in Sources */,
 				8DA042C423EC391300E253CE /* BaseViewController.swift in Sources */,
+				8DA042FC23F4032D00E253CE /* Steps.swift in Sources */,
+				8DA0430B23F5A06900E253CE /* StepListViewViewModel.swift in Sources */,
 				8DED8C9623E5BCB600A138D2 /* RecipesViewController.swift in Sources */,
+				8DA042E923F3F09900E253CE /* GetNutritionsService.swift in Sources */,
+				8DA042F323F3F24500E253CE /* Bad.swift in Sources */,
+				8DA042ED23F3F0D700E253CE /* RecipeAnalyzedInstructionsRequest.swift in Sources */,
 				8DED8C9223E5BCB600A138D2 /* AppDelegate.swift in Sources */,
+				8DA042F223F3F24500E253CE /* Good.swift in Sources */,
+				8DA0430023F5944300E253CE /* GetSimilarRecipesRequest.swift in Sources */,
 				8DA042D923F19E0E00E253CE /* Extensions.swift in Sources */,
 				8DF210E223EAFFAF00592024 /* Coordinator.swift in Sources */,
+				8DA0430423F597A000E253CE /* BaseViewModel.swift in Sources */,
+				8DA042E123F2DC7800E253CE /* RecipeDetailViewViewModel.swift in Sources */,
 				8D8DA88223EB02EA00C4F8D1 /* R.generated.swift in Sources */,
 				8DED8C9423E5BCB600A138D2 /* SceneDelegate.swift in Sources */,
 				8DB13A6523E9BB2500274120 /* Environment.swift in Sources */,
+				8DA042EB23F3F0B400E253CE /* GetAnalyzedInstructionsService.swift in Sources */,
 				8DF210E323EAFFAF00592024 /* BaseCoordinator.swift in Sources */,
 				8D8DA88823EC243800C4F8D1 /* RecipeObject.swift in Sources */,
+				8DA042E523F3EE9800E253CE /* RecipeNutritionRequest.swift in Sources */,
 				8DED8CB423E5C42E00A138D2 /* RecipesViewViewModel.swift in Sources */,
 				8DB2E4E423E9ADCF00282B00 /* SearchRecipeRequest.swift in Sources */,
 				8DB13A6223E9BB2500274120 /* NetworkServiceProvider.swift in Sources */,
 				8D8DA88723EC243800C4F8D1 /* SearchRecipeResponseObject.swift in Sources */,
+				8DA0430923F5A05900E253CE /* StepListViewCoordinator.swift in Sources */,
+				8DA042E323F2DC8900E253CE /* RecipeDetailViewCoordinator.swift in Sources */,
 				8DF210DA23EAF28E00592024 /* SearchRecipesService.swift in Sources */,
+				8DA042F423F3F24500E253CE /* NutritionsResponseObject.swift in Sources */,
+				8DA042FD23F4032D00E253CE /* AnalyzedInstructionsResponseObject.swift in Sources */,
+				8DA0430223F595CF00E253CE /* GetSimilarRecipesService.swift in Sources */,
+				8DA0430623F59F0900E253CE /* StepListViewController.swift in Sources */,
 				8DA042DB23F1A02F00E253CE /* APIError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

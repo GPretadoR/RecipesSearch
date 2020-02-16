@@ -8,24 +8,27 @@
 import ReactiveSwift
 
 protocol RecipesViewCoordinatorDelegate: class {
-    func didSelectItem(at indexPath: IndexPath)
+    func didSelectRecipe(recipe: RecipeObject)
 }
 
-class RecipesViewViewModel {
+class RecipesViewViewModel: BaseViewModel {
     
     weak var coordinatorDelegate: RecipesViewCoordinatorDelegate?
     private let context: Context
-    private var imagesBaseUrl: String = ""
+    private var imagesBaseUrl: String = "" {
+        didSet {
+            context.imagesBaseUrl = self.imagesBaseUrl
+        }
+    }
     
     var recipeItems = MutableProperty<[RecipeObject]>([])
-    var isLoading = MutableProperty<Bool>(false)
-    var errorMessage = MutableProperty<String>("")
     
     let debounceInterval = 0.8
     
     init(context: Context, coordinatorDelegate: RecipesViewCoordinatorDelegate) {
         self.context = context
         self.coordinatorDelegate = coordinatorDelegate
+        super.init()
     }
     
     func getRecipe(keyword: String) {
@@ -47,13 +50,14 @@ class RecipesViewViewModel {
     }
     
     func buildImageUrl(id: Int) -> URL? {
-        guard imagesBaseUrl != "" else { return nil }
+        guard !imagesBaseUrl.isEmpty else { return nil }
         let imageSize = RecipeCollectionImageSizes.medium312by231.rawValue
         guard let  url = URL(string: imagesBaseUrl + "\(id)-\(imageSize).jpg") else { return nil }
         return url
     }
     
     func didTapItem(at indexPath: IndexPath) {
-        coordinatorDelegate?.didSelectItem(at: indexPath)
+        let recipeObject = recipeItems.value[indexPath.item]
+        coordinatorDelegate?.didSelectRecipe(recipe: recipeObject)
     }
 }

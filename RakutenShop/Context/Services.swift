@@ -10,7 +10,14 @@ class Services {
     let networkServiceProvider = NetworkServiceProvider(baseURL: Environments.baseUrl(env: .dev))
     
     let searchRecipesService: SearchRecipesService
+    let recipeNutritionService: GetNutritionsService
+    let recipeInstructionService: GetAnalyzedInstructionsService
+    let getSimilarRecipes: GetSimilarRecipesService
+    
     init() {
-        self.searchRecipesService = SearchRecipesService(searchRequest: networkServiceProvider)
+        searchRecipesService = SearchRecipesService(searchRequest: networkServiceProvider)
+        recipeNutritionService = GetNutritionsService(nutritionsRequest: networkServiceProvider)
+        recipeInstructionService = GetAnalyzedInstructionsService(analyzedInstructionsRequest: networkServiceProvider)
+        getSimilarRecipes = GetSimilarRecipesService(similarRecipesRequest: networkServiceProvider)
     }
 }

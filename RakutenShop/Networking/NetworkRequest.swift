@@ -16,8 +16,8 @@ protocol NetworkRequest {
     var bodyParameters: [String: String]? { get }
     var httpMethod: HTTPMethod { get }
     var customHeaders: [String: String]? { get }
-    var authorizationStrategy: AuthorizationStrategy? { get }
-    var timeoutInterval: TimeInterval? { get }
+    var authorizationStrategy: AuthorizationStrategy { get }
+    var timeoutInterval: TimeInterval { get }
     
 }
 
@@ -26,8 +26,8 @@ extension NetworkRequest {
     var queryParameters: [String: String]? { nil }
     var bodyParameters: [String: String]? { nil }
     var customHeaders: [String: String]? { nil }
-    var authorizationStrategy: AuthorizationStrategy? { nil }
-    var timeoutInterval: TimeInterval? { 10 }
+    var authorizationStrategy: AuthorizationStrategy { .token }
+    var timeoutInterval: TimeInterval { 10 }
 }
 /*
 #warning("I am thinking this part should be changed, look in the Ihor's project, he structed it well")
@@ -67,4 +67,5 @@ extension NetworkRequest {
 */
 enum AuthorizationStrategy {
     case token
+    case noTokenRequired
 }

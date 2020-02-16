@@ -12,6 +12,8 @@ class RecipesViewCoordinator: BaseCoordinator {
     private let context: Context
     private let window: UIWindow
 
+    var recipeDetailCoordinator: RecipeDetailViewCoordinator?
+    
     init(context: Context, window: UIWindow) {
         self.context = context
         self.window = window
@@ -32,8 +34,9 @@ class RecipesViewCoordinator: BaseCoordinator {
 }
 
 extension RecipesViewCoordinator: RecipesViewCoordinatorDelegate {
-    func didSelectItem(at indexPath: IndexPath) {
-        
+    func didSelectRecipe(recipe: RecipeObject) {
+        recipeDetailCoordinator = RecipeDetailViewCoordinator(context: context, coordinator: self, recipeObject: recipe)
+        recipeDetailCoordinator?.recipeObject = recipe
+        recipeDetailCoordinator?.start()
     }
-    
 }

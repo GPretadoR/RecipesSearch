@@ -8,4 +8,6 @@
 
 class Context {
     let services = Services()
+    
+    var imagesBaseUrl: String?
 }

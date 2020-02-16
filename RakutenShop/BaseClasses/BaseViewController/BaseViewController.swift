@@ -26,6 +26,7 @@ class BaseViewController: UIViewController {
     }
 
     func setupView() {
+        view.backgroundColor = .lightGray
     }
 
     func setupViewModel() {
