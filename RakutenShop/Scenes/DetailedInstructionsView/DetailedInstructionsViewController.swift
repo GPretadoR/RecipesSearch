@@ -26,7 +26,7 @@ class DetailedInstructionsViewController: BaseViewController {
     
     override func setupViewModel() {
         guard let viewModel = viewModel else { return }
-        reactive.makeBindingTarget { [unowned self] (weakself, object) in
+        reactive.makeBindingTarget { (localSelf, _) in
             if let number = object.number {
                 self.title = R.string.localizable.recipeDetailInstructionsStepCountText("\(number)")
             }
