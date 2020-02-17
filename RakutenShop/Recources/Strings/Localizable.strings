@@ -15,3 +15,6 @@
 "recipeDetail.proteinsLabel.text"   = "Proteins: %@";
 "recipeDetail.instructionsStepCount.text" = "Steps: %@";
 "recipeDetail.instructionsNameDish.defaultText" = "Dish: %@";
+
+"detailedStepes.tableViewHeaderIngredients.text" = "Ingredients";
+"detailedStepes.tableViewHeaderEquipments.text" = "Equipments";

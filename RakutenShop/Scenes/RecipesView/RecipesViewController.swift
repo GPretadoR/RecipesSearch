@@ -57,13 +57,13 @@ class RecipesViewController: BaseViewController {
             }
         }
         
-        viewModel.errorMessage.producer.skip(first: 1).startWithValues { (errorMessage) in
+        viewModel.errorMessage.signal.observeValues { (errorMessage) in
             DispatchQueue.main.async {
                 SVProgressHUD.showError(withStatus: errorMessage)
             }
         }
         
-        viewModel.recipeItems.producer.skip(first: 1).startWithValues { (recipes) in
+        viewModel.recipeItems.signal.observeValues { (recipes) in
             if recipes.count == 0 {
                 DispatchQueue.main.async {
                     SVProgressHUD.showInfo(withStatus: "No Results")

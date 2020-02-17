@@ -13,6 +13,7 @@ class StepListViewCoordinator: BaseCoordinator {
 
     private let context: Context
     private var viewController: StepListViewController?
+    private var detailedInstructionsCoordinator: DetailedInstructionsViewCoordinator?
     
     var instructions: AnalyzedInstructionsResponseObject
     
@@ -22,7 +23,7 @@ class StepListViewCoordinator: BaseCoordinator {
         super.init(coordinator: coordinator)
         viewController = R.storyboard.main.stepListViewController()
         guard let viewController = viewController else { return }
-        let viewModel = StepListViewViewModel(context: context, analyzedInstructions: instructions)
+        let viewModel = StepListViewViewModel(context: context, coordinatorDelegate: self, analyzedInstructions: instructions)
         viewController.viewModel = viewModel
     }
     
@@ -31,4 +32,11 @@ class StepListViewCoordinator: BaseCoordinator {
         rootNavController.pushViewController(viewController, animated: true)
     }
     
+}
+
+extension StepListViewCoordinator: StepListViewCoordinatorDelegate {
+    func didTapItem(step: Steps) {
+        detailedInstructionsCoordinator = DetailedInstructionsViewCoordinator(context: context, coordinator: self, step: step)        
+        detailedInstructionsCoordinator?.start()
+    }
 }
