@@ -13,22 +13,21 @@ class DetailedInstructionsViewCoordinator: BaseCoordinator {
     private let context: Context
     private var viewController: DetailedInstructionsViewController?
     
-    var step: Steps?
+    var step: Steps
     
-    init(context: Context, coordinator: BaseCoordinator) {
+    init(context: Context, coordinator: BaseCoordinator, step: Steps) {
         self.context = context
+        self.step = step
         super.init(coordinator: coordinator)
         self.viewController = R.storyboard.main.detailedInstructionsViewController()
         guard let viewController = viewController else { return }
-        let viewModel = DetailedInstructionsViewViewModel(context: context, coordinatorDelegate: self)
+        let viewModel = DetailedInstructionsViewViewModel(context: context, coordinatorDelegate: self, step: step)
         viewController.viewModel = viewModel
     }
     
     override func start() {
         guard let viewController = viewController, let rootNavController = rootViewController as? UINavigationController else { return }
         rootNavController.pushViewController(viewController, animated: true)
-        guard let step = step else { return }
-        viewController.viewModel?.steps = MutableProperty<Steps>(step)
     }
 }
 

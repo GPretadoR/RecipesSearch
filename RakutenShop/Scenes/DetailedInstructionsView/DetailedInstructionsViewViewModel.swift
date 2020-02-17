@@ -24,11 +24,12 @@ class DetailedInstructionsViewViewModel: BaseViewModel {
     
     let imagesBaseUrl = "https://spoonacular.com/cdn/"
     
-    var steps = MutableProperty<Steps>(Steps(number: 0, step: "", ingredients: [], equipment: []))
+    var steps: MutableProperty<Steps>
     
-    init(context: Context, coordinatorDelegate: DetailedInstructionsViewCoordinatorDelegate) {
+    init(context: Context, coordinatorDelegate: DetailedInstructionsViewCoordinatorDelegate, step: Steps) {
         self.context = context
         self.coordinatorDelegate = coordinatorDelegate
+        self.steps = MutableProperty<Steps>(step)
         super.init()
     }
     

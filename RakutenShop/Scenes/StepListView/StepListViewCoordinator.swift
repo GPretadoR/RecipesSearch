@@ -36,8 +36,7 @@ class StepListViewCoordinator: BaseCoordinator {
 
 extension StepListViewCoordinator: StepListViewCoordinatorDelegate {
     func didTapItem(step: Steps) {
-        detailedInstructionsCoordinator = DetailedInstructionsViewCoordinator(context: context, coordinator: self)
-        detailedInstructionsCoordinator?.step = step
+        detailedInstructionsCoordinator = DetailedInstructionsViewCoordinator(context: context, coordinator: self, step: step)        
         detailedInstructionsCoordinator?.start()
     }
 }

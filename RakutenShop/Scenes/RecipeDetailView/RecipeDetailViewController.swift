@@ -50,7 +50,7 @@ class RecipeDetailViewController: BaseViewController {
             }
         }        
         
-        viewModel.errorMessage.producer.skip(first: 1).startWithValues { (errorMessage) in
+        viewModel.errorMessage.signal.observeValues { (errorMessage) in
             DispatchQueue.main.async {
                 SVProgressHUD.showError(withStatus: errorMessage)
             }
