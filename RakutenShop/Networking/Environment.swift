@@ -16,7 +16,11 @@ enum Environments {
     private static let prodEnvirontment = "https://api.spoonacular.com"
     private static let devEnvironment = "https://api.spoonacular.com"
     private static let localDebug = "https://api.spoonacular.com"
-
+    
+    static let persistentStoreName = {
+        "Recipes"
+    }
+    
     static func baseUrl(env: Environments) -> URL {
         let baseUrl: String = {
             switch env {

@@ -67,6 +67,10 @@ class RecipeDetailViewViewModel: BaseViewModel {
         }).start()
     }
     
+    func didTapSaveButton() {
+        context.services.saveRecipeToDBService.storeRecipe(recipe: recipeObject.value)
+    }
+    
     func didSelectItem(index: IndexPath) {        
         coordinatorDelegate?.didTapInstructionTableViewCell(instructions: analyzedInstructions.value[index.row])
     }

@@ -10,16 +10,6 @@ import ReactiveSwift
 import Alamofire
 import Foundation
 
-protocol NetworkServices {
-    associatedtype T
-    associatedtype Output
-    
-//    func request(request: T, completion:@escaping(Result<Data>) -> Void)
-//    func request<U>(request: T, decodeType: U.Type, completion:@escaping(Result<U>) -> Void) where U: Decodable
-    func requestData<T: NetworkRequest>(request: T) -> SignalProducer<Data, Error>
-    func requestJson<T: NetworkRequest, U: Decodable>(request: T, decodeType: U.Type) -> SignalProducer<U, Error>
-}
-
 class NetworkServiceProvider: NetworkServices {
     
     private let urlSession = URLSession.shared
@@ -67,7 +57,6 @@ class NetworkServiceProvider: NetworkServices {
     private func reactiveCallDecodable<U: Decodable>(request: T, decodeType: U.Type) -> SignalProducer<U, Error> {
         return SignalProducer { [weak self] observer, lifetime in
             guard let self = self else { return }
-            //TODO: Add do catch
             do {
                 let urlRequest = try self.makeURLRequest(request)
                 let dataRequest = self.session.request(urlRequest)
@@ -99,7 +88,6 @@ class NetworkServiceProvider: NetworkServices {
     private func reactiveCall(request: T) -> SignalProducer<Data, Error> {
         return SignalProducer { [weak self] observer, lifetime in
             guard let self = self else { return }
-            //TODO: Add do catch
             do {
                 let urlRequest = try self.makeURLRequest(request)
                 let dataRequest = self.session.request(urlRequest)

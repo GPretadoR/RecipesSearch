@@ -85,7 +85,7 @@ class RecipeDetailViewController: BaseViewController {
     // MARK: - Actions -
     
     @objc func saveButtonTapped() {
-        
+        viewModel?.didTapSaveButton()
     }
     
     // MARK: - Helper functions -
