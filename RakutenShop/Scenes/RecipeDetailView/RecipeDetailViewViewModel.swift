@@ -34,41 +34,46 @@ class RecipeDetailViewViewModel: BaseViewModel {
     }
     
     func buildImageUrl(imageName: String) -> URL? {
-        guard let imagesBaseUrl = context.imagesBaseUrl  else { return nil }
-        guard let  url = URL(string: imagesBaseUrl + imageName) else { return nil }
+        guard let  url = URL(string: context.imagesBaseUrl + imageName) else { return nil }
         return url
     }
     
     func getInfo() {        
         guard let recipeId = recipeObject.value.id else { return }
         isLoading.value = true
-        context.services.recipeNutritionService.getNutritions(id: recipeId).on(value: { [weak self] nutritions in
-            self?.nutritionsObject.value = nutritions
-            self?.isLoading.value = false
-        }).on(failed: { [weak self] error in
-            self?.isLoading.value = false
-            self?.errorMessage.value = error.localizedDescription
-        }).start()
+        context.services.recipeNutritionService.getNutritions(id: recipeId)
+            .observe(on: UIScheduler())
+            .on(value: { [weak self] nutritions in
+                self?.nutritionsObject.value = nutritions
+                self?.isLoading.value = false
+            }).on(failed: { [weak self] error in
+                self?.isLoading.value = false
+                self?.errorMessage.value = error.localizedDescription
+            }).start()
         
-        context.services.recipeInstructionService.getAnalyzedInstructions(id: recipeId).on(value: { [weak self] analyzedIngredientsObject in
-            self?.analyzedInstructions.value = analyzedIngredientsObject
-            self?.isLoading.value = false
-        }).on(failed: { [weak self] error in
-            self?.isLoading.value = false
-            self?.errorMessage.value = error.localizedDescription
-        }).start()
+        context.services.recipeInstructionService.getAnalyzedInstructions(id: recipeId)
+            .observe(on: UIScheduler())
+            .on(value: { [weak self] analyzedIngredientsObject in
+                self?.analyzedInstructions.value = analyzedIngredientsObject
+                self?.isLoading.value = false
+            }).on(failed: { [weak self] error in
+                self?.isLoading.value = false
+                self?.errorMessage.value = error.localizedDescription
+            }).start()
         
-        context.services.getSimilarRecipes.getSimilarRecipes(id: recipeId).on(value: { [weak self] similarRecipes in
-            self?.isLoading.value = false
-            self?.similarRecipes.value = similarRecipes
-        }).on(failed: { [weak self] error in
-            self?.isLoading.value = false
-            self?.errorMessage.value = error.localizedDescription
-        }).start()
+        context.services.getSimilarRecipes.getSimilarRecipes(id: recipeId)
+            .observe(on: UIScheduler())
+            .on(value: { [weak self] similarRecipes in
+                self?.isLoading.value = false
+                self?.similarRecipes.value = similarRecipes
+            }).on(failed: { [weak self] error in
+                self?.isLoading.value = false
+                self?.errorMessage.value = error.localizedDescription
+            }).start()
     }
     
     func didTapSaveButton() {
-        context.services.saveRecipeToDBService.storeRecipe(recipe: recipeObject.value)
+        saveRecipe()
     }
     
     func didSelectItem(index: IndexPath) {        
@@ -79,5 +84,13 @@ class RecipeDetailViewViewModel: BaseViewModel {
         let recipe = similarRecipes.value[indexPath.item]
         recipeObject.value = recipe
         getInfo()
+    }
+    
+    private func saveRecipe() {
+        context.services.saveRecipeToDBService.storeRecipe(recipe: recipeObject.value).on(failed: { [weak self] (error) in
+            self?.errorMessage.value = R.string.common.commonStringFailedToSave()
+        }, value: { [weak self] _ in
+            self?.successMessage.value = R.string.common.commonStringSuccessfullySaved()
+        }).observe(on: UIScheduler()).start()
     }
 }

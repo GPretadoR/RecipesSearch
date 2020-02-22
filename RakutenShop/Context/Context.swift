@@ -9,5 +9,5 @@
 class Context {
     let services = Services()
     
-    var imagesBaseUrl: String?
+    var imagesBaseUrl: String = "https://spoonacular.com/recipeImages/"
 }

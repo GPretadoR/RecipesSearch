@@ -29,8 +29,4 @@ class StepListViewViewModel: BaseViewModel {
         guard let step = analyzedInstructions.value.steps?[indexPath.row] else { return }
         coordinatorDelegate?.didTapItem(step: step)
     }
-    
-    func getRecipeList() -> [RecipeObject] {        
-        return context.services.saveRecipeToDBService.getSavedRecipes()
-    }
 }

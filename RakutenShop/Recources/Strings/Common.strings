@@ -1,0 +1,12 @@
+/* 
+  Common.strings
+  RakutenShop
+
+  Created by Garnik Ghazaryan on 2/21/20.
+  Copyright © 2020 Garnik Ghazaryan. All rights reserved.
+*/
+
+"common.string.successfullySaved" = "Successfully Saved";
+"common.string.failedToSave" = "Failed to save";
+"common.string.saveButtonTitle" = "Save";
+"common.string.myRecipesButtonTitle" = "My Recipes";

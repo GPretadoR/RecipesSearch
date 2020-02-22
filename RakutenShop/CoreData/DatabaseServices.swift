@@ -7,11 +7,15 @@
 //
 
 import CoreData
+import ReactiveSwift
 
 protocol DatabaseServices {
     
     associatedtype T
     associatedtype Output
     
-    func fetch<Output>(objectType: Output.Type) -> [Output] 
+//    func fetch<Output>(objectType: Output.Type) -> [Output]
+//    func perform(completion: @escaping (NSManagedObjectContext) throws -> Void)
+    func perform(completion: @escaping (NSManagedObjectContext) throws -> Void) -> SignalProducer<Bool, Error>
+    func fetch<Output>(objectType: Output.Type) -> SignalProducer<[Output], Error>
 }

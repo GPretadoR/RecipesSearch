@@ -7,6 +7,7 @@
 //
 
 import CoreData
+import ReactiveSwift
 
 class DatabaseServiceProvider: DatabaseServices {
     typealias T = DatabaseTask
@@ -43,6 +44,7 @@ class DatabaseServiceProvider: DatabaseServices {
     
     lazy var context = persistentContainer.viewContext
     
+    /*
     func perform(completion: @escaping (NSManagedObjectContext) throws -> Void) {
         context.perform { [weak self] in
             do {
@@ -63,6 +65,38 @@ class DatabaseServiceProvider: DatabaseServices {
             return result ?? [Output]()
         } catch {
             return [Output]()
+        }
+    }
+    */
+    
+    func perform(completion: @escaping (NSManagedObjectContext) throws -> Void) -> SignalProducer<Bool, Error> {
+        return SignalProducer { [weak self] (observer, _) in
+            self?.context.perform { [weak self] in
+                do {
+                    guard let weakself = self else { return }
+                    _ = try completion(weakself.context)
+                    weakself.saveContext()
+                    observer.send(value: true)
+                    observer.sendCompleted()
+                } catch {
+                    observer.send(error: error)
+                    print("error")
+                }
+            }
+        }
+    }
+    
+    func fetch<Output>(objectType: Output.Type) -> SignalProducer<[Output], Error> {
+        return SignalProducer { [weak self] (observer, _) in
+            let entityName = String(describing: objectType)
+            let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: entityName)
+            do {
+                let result = try self?.context.fetch(fetchRequest) as? [Output]
+                observer.send(value: result ?? [Output]())
+                observer.sendCompleted()
+            } catch {
+                observer.send(error: error)
+            }
         }
     }
     

@@ -37,7 +37,7 @@ class RecipeDetailViewController: BaseViewController {
     }
     
     override func setupView() {
-        let rightBarItem = UIBarButtonItem(title: "Save", style: .plain, target: self, action: #selector(saveButtonTapped))
+        let rightBarItem = UIBarButtonItem(title: R.string.common.commonStringSaveButtonTitle(), style: .plain, target: self, action: #selector(saveButtonTapped))
         self.navigationItem.setRightBarButton(rightBarItem, animated: true)
     }
     
@@ -45,28 +45,24 @@ class RecipeDetailViewController: BaseViewController {
         guard let viewModel = viewModel else { return }
         
         viewModel.isLoading.producer.startWithValues { (showLoading) in
-            DispatchQueue.main.async {
-                showLoading ? SVProgressHUD.show() : SVProgressHUD.dismiss()
-            }
+            showLoading ? SVProgressHUD.show() : SVProgressHUD.dismiss()
         }        
         
         viewModel.errorMessage.signal.observeValues { (errorMessage) in
-            DispatchQueue.main.async {
-                SVProgressHUD.showError(withStatus: errorMessage)
-            }
+            SVProgressHUD.showError(withStatus: errorMessage)
+        }
+        
+        viewModel.successMessage.signal.observeValues { (successMessage) in
+            SVProgressHUD.showSuccess(withStatus: successMessage)
         }
         
         viewModel.recipeObject.producer.startWithValues({ [unowned self] (repiceObject) in
-            DispatchQueue.main.async {
-                self.updateUI(recipeObject: repiceObject)
-            }
+            self.updateUI(recipeObject: repiceObject)
         })
         
         viewModel.nutritionsObject.producer.startWithValues({ [unowned self] (nutritionsObject) in
-            DispatchQueue.main.async {
-                guard let nutritionObject = nutritionsObject else { return }
-                self.updateNutritions(nutritionsObject: nutritionObject)
-            }
+            guard let nutritionObject = nutritionsObject else { return }
+            self.updateNutritions(nutritionsObject: nutritionObject)
         })
         
 //        viewModel.analyzedInstructions.producer.startWithValues({ (instructions) in

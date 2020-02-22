@@ -150,8 +150,74 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.string` struct is generated, and contains static references to 2 localization tables.
+  /// This `R.string` struct is generated, and contains static references to 3 localization tables.
   struct string {
+    /// This `R.string.common` struct is generated, and contains static references to 4 localization keys.
+    struct common {
+      /// Value: Failed to save
+      static let commonStringFailedToSave = Rswift.StringResource(key: "common.string.failedToSave", tableName: "Common", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: My Recipes
+      static let commonStringMyRecipesButtonTitle = Rswift.StringResource(key: "common.string.myRecipesButtonTitle", tableName: "Common", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: Save
+      static let commonStringSaveButtonTitle = Rswift.StringResource(key: "common.string.saveButtonTitle", tableName: "Common", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: Successfully Saved
+      static let commonStringSuccessfullySaved = Rswift.StringResource(key: "common.string.successfullySaved", tableName: "Common", bundle: R.hostingBundle, locales: [], comment: nil)
+
+      /// Value: Failed to save
+      static func commonStringFailedToSave(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("common.string.failedToSave", tableName: "Common", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Common", preferredLanguages: preferredLanguages) else {
+          return "common.string.failedToSave"
+        }
+
+        return NSLocalizedString("common.string.failedToSave", tableName: "Common", bundle: bundle, comment: "")
+      }
+
+      /// Value: My Recipes
+      static func commonStringMyRecipesButtonTitle(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("common.string.myRecipesButtonTitle", tableName: "Common", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Common", preferredLanguages: preferredLanguages) else {
+          return "common.string.myRecipesButtonTitle"
+        }
+
+        return NSLocalizedString("common.string.myRecipesButtonTitle", tableName: "Common", bundle: bundle, comment: "")
+      }
+
+      /// Value: Save
+      static func commonStringSaveButtonTitle(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("common.string.saveButtonTitle", tableName: "Common", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Common", preferredLanguages: preferredLanguages) else {
+          return "common.string.saveButtonTitle"
+        }
+
+        return NSLocalizedString("common.string.saveButtonTitle", tableName: "Common", bundle: bundle, comment: "")
+      }
+
+      /// Value: Successfully Saved
+      static func commonStringSuccessfullySaved(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("common.string.successfullySaved", tableName: "Common", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Common", preferredLanguages: preferredLanguages) else {
+          return "common.string.successfullySaved"
+        }
+
+        return NSLocalizedString("common.string.successfullySaved", tableName: "Common", bundle: bundle, comment: "")
+      }
+
+      fileprivate init() {}
+    }
+
     /// This `R.string.localizable` struct is generated, and contains static references to 10 localization keys.
     struct localizable {
       /// Value: Calories: %@
@@ -420,6 +486,7 @@ struct _R: Rswift.Validatable {
 
       let bundle = R.hostingBundle
       let detailedInstructionsViewController = StoryboardViewControllerResource<DetailedInstructionsViewController>(identifier: "DetailedInstructionsViewController")
+      let myRecipesViewController = StoryboardViewControllerResource<MyRecipesViewController>(identifier: "MyRecipesViewController")
       let name = "Main"
       let recipeDetailViewController = StoryboardViewControllerResource<RecipeDetailViewController>(identifier: "RecipeDetailViewController")
       let recipesViewController = StoryboardViewControllerResource<RecipesViewController>(identifier: "RecipesViewController")
@@ -427,6 +494,10 @@ struct _R: Rswift.Validatable {
 
       func detailedInstructionsViewController(_: Void = ()) -> DetailedInstructionsViewController? {
         return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: detailedInstructionsViewController)
+      }
+
+      func myRecipesViewController(_: Void = ()) -> MyRecipesViewController? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: myRecipesViewController)
       }
 
       func recipeDetailViewController(_: Void = ()) -> RecipeDetailViewController? {
@@ -445,6 +516,7 @@ struct _R: Rswift.Validatable {
         if #available(iOS 11.0, tvOS 11.0, *) {
         }
         if _R.storyboard.main().detailedInstructionsViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'detailedInstructionsViewController' could not be loaded from storyboard 'Main' as 'DetailedInstructionsViewController'.") }
+        if _R.storyboard.main().myRecipesViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'myRecipesViewController' could not be loaded from storyboard 'Main' as 'MyRecipesViewController'.") }
         if _R.storyboard.main().recipeDetailViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'recipeDetailViewController' could not be loaded from storyboard 'Main' as 'RecipeDetailViewController'.") }
         if _R.storyboard.main().recipesViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'recipesViewController' could not be loaded from storyboard 'Main' as 'RecipesViewController'.") }
         if _R.storyboard.main().stepListViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'stepListViewController' could not be loaded from storyboard 'Main' as 'StepListViewController'.") }

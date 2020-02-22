@@ -32,6 +32,9 @@ class RecipesViewController: BaseViewController {
     // MARK: - Setup View -
     override func setupView() {
         rcTextField.placeholder = R.string.localizable.recipesSearchFieldPlacholder()
+        let rightBarItem = UIBarButtonItem(title: R.string.common.commonStringMyRecipesButtonTitle(), style: .plain, target: self, action: #selector(myRecipesButtonTapped))
+        self.navigationItem.setRightBarButton(rightBarItem, animated: true)
+        
     }
     
     // MARK: - Setup ViewModel -
@@ -52,15 +55,11 @@ class RecipesViewController: BaseViewController {
             } <~ viewModel.recipeItems
         
         viewModel.isLoading.producer.startWithValues { (showLoading) in
-            DispatchQueue.main.async {
-                showLoading ? SVProgressHUD.show() : SVProgressHUD.dismiss()
-            }
+            showLoading ? SVProgressHUD.show() : SVProgressHUD.dismiss()
         }
         
         viewModel.errorMessage.signal.observeValues { (errorMessage) in
-            DispatchQueue.main.async {
-                SVProgressHUD.showError(withStatus: errorMessage)
-            }
+            SVProgressHUD.showError(withStatus: errorMessage)
         }
         
         viewModel.recipeItems.signal.observeValues { (recipes) in
@@ -70,6 +69,12 @@ class RecipesViewController: BaseViewController {
                 }
             }
         }
+    }
+    
+    // MARK: - Actions -
+       
+    @objc func myRecipesButtonTapped() {
+        viewModel?.didTapMyRecipesButton()
     }
 }
 

@@ -11,4 +11,5 @@ import ReactiveSwift
 class BaseViewModel {
     var isLoading = MutableProperty<Bool>(false)
     var errorMessage = MutableProperty<String>("")
+    var successMessage = MutableProperty<String>("")
 }

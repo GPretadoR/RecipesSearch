@@ -338,5 +338,84 @@
             </objects>
             <point key="canvasLocation" x="1927.5362318840582" y="45.535714285714285"/>
         </scene>
+        <!--My Recipes View Controller-->
+        <scene sceneID="tKr-HA-jxa">
+            <objects>
+                <viewController storyboardIdentifier="MyRecipesViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Gci-ZD-aWZ" customClass="MyRecipesViewController" customModule="RakutenShop" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="zHa-gg-300">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="i7y-Sw-kPY">
+                                <rect key="frame" x="20" y="74" width="374" height="788"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="fGD-7R-lrV">
+                                    <size key="itemSize" width="156" height="200"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="10" minY="10" maxX="10" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="RecipesCollectionViewCell" id="che-by-PwS" customClass="RecipesCollectionViewCell" customModule="RakutenShop" customModuleProvider="target">
+                                        <rect key="frame" x="10" y="10" width="156" height="200"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="AT0-Pr-xNH">
+                                            <rect key="frame" x="0.0" y="0.0" width="156" height="200"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="R52-MG-bTm">
+                                                    <rect key="frame" x="0.0" y="0.0" width="156" height="115"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="156" id="3Fj-bD-scJ"/>
+                                                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="115" id="Ck6-ph-avu"/>
+                                                        <constraint firstAttribute="height" constant="115" id="LWx-Yl-Ufc"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="apR-HZ-AhQ">
+                                                    <rect key="frame" x="8" y="123" width="140" height="20.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="apR-HZ-AhQ" secondAttribute="trailing" constant="8" id="2Lk-E6-L4N"/>
+                                                <constraint firstAttribute="trailing" secondItem="R52-MG-bTm" secondAttribute="trailing" id="3VC-m7-EsQ"/>
+                                                <constraint firstItem="apR-HZ-AhQ" firstAttribute="top" secondItem="R52-MG-bTm" secondAttribute="bottom" constant="8" id="A5t-ck-4wr"/>
+                                                <constraint firstItem="apR-HZ-AhQ" firstAttribute="leading" secondItem="R52-MG-bTm" secondAttribute="leading" constant="8" id="BkJ-cz-Xye"/>
+                                                <constraint firstItem="apR-HZ-AhQ" firstAttribute="leading" secondItem="AT0-Pr-xNH" secondAttribute="leading" constant="8" id="C5T-bI-3N1"/>
+                                                <constraint firstItem="apR-HZ-AhQ" firstAttribute="trailing" secondItem="R52-MG-bTm" secondAttribute="trailing" constant="-8" id="QFp-gn-Sz6"/>
+                                                <constraint firstItem="R52-MG-bTm" firstAttribute="leading" secondItem="AT0-Pr-xNH" secondAttribute="leading" id="aK1-43-Acf"/>
+                                                <constraint firstItem="R52-MG-bTm" firstAttribute="top" secondItem="AT0-Pr-xNH" secondAttribute="top" id="l2h-Oo-Stm"/>
+                                            </constraints>
+                                        </collectionViewCellContentView>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <size key="customSize" width="156" height="200"/>
+                                        <connections>
+                                            <outlet property="recipesImageView" destination="R52-MG-bTm" id="n8n-Uh-9eJ"/>
+                                            <outlet property="recipesTitleLabel" destination="apR-HZ-AhQ" id="LhH-cV-BF3"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="i7y-Sw-kPY" firstAttribute="top" secondItem="5go-lD-x55" secondAttribute="top" constant="30" id="lWf-TN-Uiw"/>
+                            <constraint firstItem="i7y-Sw-kPY" firstAttribute="leading" secondItem="5go-lD-x55" secondAttribute="leading" constant="20" id="pVi-wm-Z5U"/>
+                            <constraint firstItem="i7y-Sw-kPY" firstAttribute="bottom" secondItem="5go-lD-x55" secondAttribute="bottom" id="qR6-NT-UAM"/>
+                            <constraint firstItem="5go-lD-x55" firstAttribute="trailing" secondItem="i7y-Sw-kPY" secondAttribute="trailing" constant="20" id="vGP-yQ-wJB"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="5go-lD-x55"/>
+                    </view>
+                    <connections>
+                        <outlet property="myRecipesCollectionView" destination="i7y-Sw-kPY" id="TGM-6V-vCf"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YXx-hg-cd1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2592.753623188406" y="45.535714285714285"/>
+        </scene>
     </scenes>
 </document>

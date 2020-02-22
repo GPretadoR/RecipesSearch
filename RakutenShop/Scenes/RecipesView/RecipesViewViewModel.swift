@@ -9,6 +9,7 @@ import ReactiveSwift
 
 protocol RecipesViewCoordinatorDelegate: class {
     func didSelectRecipe(recipe: RecipeObject)
+    func didTapMyRecipesButton()
 }
 
 class RecipesViewViewModel: BaseViewModel {
@@ -46,7 +47,7 @@ class RecipesViewViewModel: BaseViewModel {
         }).on(failed: { [weak self] (error) in
             self?.isLoading.value = false
             self?.errorMessage.value = error.localizedDescription
-        }).start()
+        }).observe(on: UIScheduler()).start()
     }
     
     func buildImageUrl(id: Int) -> URL? {
@@ -59,5 +60,9 @@ class RecipesViewViewModel: BaseViewModel {
     func didTapItem(at indexPath: IndexPath) {
         let recipeObject = recipeItems.value[indexPath.item]
         coordinatorDelegate?.didSelectRecipe(recipe: recipeObject)
+    }
+    
+    func didTapMyRecipesButton() {
+        coordinatorDelegate?.didTapMyRecipesButton()
     }
 }

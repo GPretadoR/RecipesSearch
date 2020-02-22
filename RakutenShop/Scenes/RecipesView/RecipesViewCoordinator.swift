@@ -13,6 +13,7 @@ class RecipesViewCoordinator: BaseCoordinator {
     private let window: UIWindow
 
     var recipeDetailCoordinator: RecipeDetailViewCoordinator?
+    var myRecipesCoordinator: MyRecipesCoordinator?
     
     init(context: Context, window: UIWindow) {
         self.context = context
@@ -38,5 +39,10 @@ extension RecipesViewCoordinator: RecipesViewCoordinatorDelegate {
         recipeDetailCoordinator = RecipeDetailViewCoordinator(context: context, coordinator: self, recipeObject: recipe)
         recipeDetailCoordinator?.recipeObject = recipe
         recipeDetailCoordinator?.start()
+    }
+    
+    func didTapMyRecipesButton() {
+        myRecipesCoordinator = MyRecipesCoordinator(context: context, coordinator: self)
+        myRecipesCoordinator?.start()
     }
 }
