@@ -22,8 +22,6 @@ class RecipesViewViewModel: BaseViewModel {
         }
     }
     
-    lazy var getRecipeAction = Action(execute: context.services.searchRecipesService.getRecipes)
-    
     var recipeItems = MutableProperty<[RecipeObject]>([])
     
     let debounceInterval = 0.8
@@ -32,13 +30,8 @@ class RecipesViewViewModel: BaseViewModel {
         self.context = context
         self.coordinatorDelegate = coordinatorDelegate
         super.init()
-        recipeItems <~ getRecipeAction.values
     }
-    
-    func getRecipe(keyword: String) {
-        getRecipeAction.apply(keyword).start()
-    }
-    /*
+
     func getRecipe(keyword: String) {
         isLoading.value = true
         context.services.searchRecipesService
@@ -56,7 +49,7 @@ class RecipesViewViewModel: BaseViewModel {
             self?.errorMessage.value = error.localizedDescription
         }).observe(on: UIScheduler()).start()
     }
-    */
+    
     func buildImageUrl(id: Int) -> URL? {
         guard !imagesBaseUrl.isEmpty else { return nil }
         let imageSize = RecipeCollectionImageSizes.medium312by231.rawValue
